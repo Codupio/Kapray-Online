@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <name>Thinkhigh_VPCpaymentgateway</name>
+    <version>1.0.2</version>
+    <stability>stable</stability>
+    <license>Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>The MIGS payment extension for Magento. 3-party Payment(Redirect to payment gateway collect card details)</summary>
+    <description>It is safe because it does not collect card details from Merchant's Server . it redirects to payment gateway page for secure transaction. It supports configurable order statuses for: Pending, Pending Payment and Processing. Can enter MerchantId, AccesCode and Secure Secret From magento admin. Enable/disable for all or specified countries It supports all credit cards (depends on your Payment provider)</description>
+    <notes>Packaging issue.&#xD;
+Repackaged the extension .</notes>
+    <authors><author><name>Mitali</name><user>mitali27</user><email>mitukkngr@gmail.com</email></author></authors>
+    <date>2013-11-25</date>
+    <time>05:42:56</time>
+    <contents><target name="magelocal"><dir name="Thinkhigh"><dir name="VPCpaymentgateway"><dir name="Block"><dir name="Form"><file name="vpcpaymentgateway.php" hash="34445cad5a754002922280a0f923565d"/></dir><dir name="Info"><file name="Vpcsave.php" hash="3e344edd0e5364c484640a03294f7dc3"/></dir></dir><dir name="Helper"><file name="Data.php" hash="c7c9f3e78c194e21361485569e7577c1"/></dir><dir name="Model"><file name="Paymentconnection.php" hash="1cf9f9c7aa988481d12d97082a31a102"/><dir name="Source"><dir name="Payment"><file name="Vpc.php" hash="345004e3ed7c99c2b9f461f511dd5e43"/></dir></dir><file name="Source.php" hash="bece0fe8d4a714c844580fb3657c0502"/><file name="Standard.php" hash="4902ddc3e1f6575ba3ea2f180f043825"/></dir><dir name="controllers"><file name="PaymentController.php" hash="30693436e826a7ea7266161fd8641b12"/></dir><dir name="etc"><file name="config.xml" hash="c6a769fda716254ad84ef3882193f4a3"/><file name="system.xml" hash="eff539d5692b3d903be6552a40c631de"/></dir><dir name="sql"><dir name="vpcpaymentgateway_setup"><file name="mysql4-install-1.0.1.php" hash="36567bd3c93e106bc9aae02cb9695d3e"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="template"><dir name="vpcpaymentgateway"><file name="redirect.phtml" hash="b0cbe7d638f1654bcc3f82c8ae5b9397"/><file name="vpcpaymentgateway.phtml" hash="68be54e9500873415d2381fe181e6c2f"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Thinkhigh_VPCpaymentgateway.xml" hash="c26b5ed8e05c51acec51e1d8e7b3c7d3"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
