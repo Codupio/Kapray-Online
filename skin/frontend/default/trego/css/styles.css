@@ -956,7 +956,16 @@ tr.summary-details-excluded { font-style:italic; }
 .header .form-search .search-autocomplete li.odd { background-color:#fffefb; }
 .header .form-search .search-autocomplete li.selected { background-color:#f7e8dd; }
 
-.shipping-container{}
+.shipping-container{ position:fixed; right:0; bottom:178px;}
+
+.shipping-containt{ background:#000; width:200px; height:34px; line-height:36px; color:#fff; font-family: 'PTSans_Regular'; font-size:12px; text-transform:uppercase; text-align: left; letter-spacing:2px;}
+
+.shipping-icon{ background:url(../images/shiping-icon.png) no-repeat 0 0; display:block; width:22px; height:16px; margin:10px 10px 0 15px; float:left;}
+
+.shipping-icon-black{background:url(../images/shiping-icon.png) no-repeat 0px -18px;}
+
+.shipping-container p{font-family: 'PTSans_Regular'; font-size:12px; color:#000; margin:7px 0 0 0; text-align:left; font-weight: bold;
+letter-spacing: 2px;}
 
 .header .form-language { 
     float: left;
@@ -3167,6 +3176,7 @@ div.top-cart .block-content ol li {
 div.social-icons{
     display: block;
 }
+.header .header-top-nav .header-top-right-panel div.social-icons{	margin-left:0px;}
 div.copyrights {
     text-transform: uppercase;
     word-wrap:break-word;
@@ -3195,8 +3205,8 @@ div.copyrights {
 div.social-icons a {
     display: block;
     float: left;
-    width: 25px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     text-indent: -9999px;
     margin-right: 7px;
     transition: background 300ms ease-in-out;
@@ -3215,16 +3225,16 @@ a.twitter-icon {
     background: url(../images/socialicons/twitter.png) no-repeat;
     background-position: 0 0;
 }
-a.linkedin-icon {
-    background: url(../images/socialicons/linkedin.png) no-repeat;
+a.pinterest-icon {
+    background: url(../images/socialicons/pinterest.png) no-repeat;
     background-position: 0 0;
 }
-a.flickr-icon {
-    background: url(../images/socialicons/flickr.png) no-repeat;
+a.instagram-icon {
+    background: url(../images/socialicons/instagram.png) no-repeat;
     background-position: 0 0;
 }
-a.googleplus-icon {
-    background: url(../images/socialicons/googleplus.png) no-repeat;
+a.vimeo-icon {
+    background: url(../images/socialicons/vimeo.png) no-repeat;
     background-position: 0 0;
 }
 /* Category View ===============================*/
