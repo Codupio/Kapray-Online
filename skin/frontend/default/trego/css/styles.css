@@ -1017,6 +1017,12 @@ letter-spacing: 2px;}
     font-weight: bold;
     font-family: 'Raleway_Regular';
 }
+.lightcolor, .lightcolor li a{ color:#fff !important;}
+ 
+.lightcolor li.over a{ background:#fff !important; color:#1e1e1e !important;}
+
+.lightcolor li.over a, .lightcolor li a:hover{ color:#d96708 !important;}
+
 #nav > li > a {
     text-transform: uppercase;
 }
