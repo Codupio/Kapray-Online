@@ -24,7 +24,6 @@
         padding-right: 30px;
     }
     #nav.default > li > a {
-        border-bottom: 1px solid #dddddd;
         transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
         -moz-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
         -webkit-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;

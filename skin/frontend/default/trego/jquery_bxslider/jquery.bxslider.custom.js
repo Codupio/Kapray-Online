@@ -33,7 +33,7 @@
 		useCSS: true,
 		preloadImages: 'visible',
 		responsive: true,
-        contentEffect: false,
+                contentEffect: false,
 
 		// TOUCH
 		touchEnabled: true,
@@ -51,7 +51,7 @@
 		pagerCustom: null,
 		
 		// CONTROLS
-		controls: true,
+		controls: false,
 		nextText: 'Next',
 		prevText: 'Prev',
 		nextSelector: null,
@@ -79,7 +79,13 @@
 		// CALLBACKS
 		onSliderLoad: function() {},
 		onSlideBefore: function() {},
-		onSlideAfter: function() {},
+		onSlideAfter: function() {
+			jQuery('.bxslider').children('li').each(function(){
+				if(jQuery(this).is(':visible') == true){
+					var color_theme = jQuery(this).children('img').attr('data-color');                            
+				}
+			});
+        },
 		onSlideNext: function() {},
 		onSlidePrev: function() {}
 	}

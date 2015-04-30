@@ -3,31 +3,36 @@
     <!-- Homepage Sidebar -->
     <?php if ($this->getIsHomePage()):?>
     <div class="header">
+    	<div class="header-top-nav">
+            <div class="header-top-left-panel f-left">
+                <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+            </div>
+            <div class="header-top-right-panel f-right">
+            	 <?php echo $this->getChildHtml('topSearch'); ?>
+                 <?php echo $this->getChildHtml('socialIcons'); ?>
+                 <div class="clear"></div>
+                 <div class="shipping-container">
+                 	<div class="shipping-containt">
+                        <i class="shipping-icon"></i>
+                        Free Shipping
+                    </div>
+                    <p>For order over PKR 5000</p>
+                 </div>
+            </div>
+            <div class="clear"></div>
+        </div>
         <div class="header-bground">
             <div class="header-sidebar">                
-                <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>                
                 <div class="box-scroll">
                     <?php echo $this->getChildHtml('topMenu'); ?>
-                    <?php echo $this->getChildHtml('topSearch'); ?>
-                    <div class="clear"></div>
-                    <?php echo $this->getChildHtml('topSpecialMenu'); ?>
                     <div class="clear"></div>
                 </div>
-                <?php echo $this->getChildHtml('socialIcons'); ?>
+                
                 <?php echo $this->getChildHtml('copyrights'); ?>
             </div>
             <a href="javascript:void(0)" class="filterproducts-link">&nbsp;</a>
         </div>
-        <div class="header-topbar">
-            <div class="quick-access">
-                <?php echo $this->getChildHtml('store_language') ?>
-                <?php echo $this->getChildHtml('custom_currency_selector') ?>
-                <?php echo $this->getChildHtml('cart_cartheader') ?>
-            </div>
-            <h1 class="page-title"></h1>
-            <?php echo $this->getChildHtml('topContainer'); ?>
-            <div class="clearer"></div>
-        </div>
+        
         <div class="filterproducts col1-layout" style="display: none;">
             <ul class="special_menu">
             <?php

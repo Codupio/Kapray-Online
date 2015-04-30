@@ -1,19 +1,25 @@
 /**
  * WARNING: Do not change this file. Your changes will be lost.
- * 2013-09-17 19:40:12 */
+ * 2015-04-29 10:23:32 */
 
 
 body {
 	color: #595959;
-        }
+        font-family: Raleway_Light;
+            font-size: 12px;
+    }
 a { 
     color: #797872; 
-        }
+        font-family: Raleway_Light;
+            font-size: 12px;
+    }
 a:hover { color: #4e4d49; }
 button.button span { 
     background: #535451; 
     color: #ffffff; 
-        }
+        font-family: Raleway_Light;
+            font-size: 12px;
+    }
 button.button:hover span { background: #2f3538; color: #ffffff; }
 button.button:active span { background: #2f3538; color: #ffffff; }
 .sale-product-icon { background: #d04d49; color: #ffffff; }
@@ -25,8 +31,8 @@ button.button:active span { background: #2f3538; color: #ffffff; }
         }
 .page, .header, .header .header-topbar, .header h1.page-title { background-color: #f1f1f1; }
 .header .header-bground { background-color: #f1f1f1; }
-.header .form-search input.input-text { color: #74736a; border-color: #c5c5c5; }
-.header .form-search input.input-text:hover { color: #74736a; border-color: #c5c5c5; }
+.header .form-search input.input-text { color: #bdbdbc; border-color: #cdcccc; }
+.header .form-search input.input-text:hover { color: #bdbdbc; border-color: #bebebe; }
 .header h1.page-title {
         }
 .footer { color: #595959; }

@@ -898,6 +898,7 @@ tr.summary-details-excluded { font-style:italic; }
 .cms-index-index .bx-wrapper ul li { width: 100% !important; }
 /* Header ================================================================================ */
 .logo {  }
+.header-top-nav { width:95%; margin:0px auto;}
 .header-container { 
     position: fixed;
     width: 100%;
@@ -906,11 +907,10 @@ tr.summary-details-excluded { font-style:italic; }
     z-index: 52;
     display: block;
 }
-.header { margin-left: 220px; padding: 0 10px; }
-.header .logo { text-decoration:none !important; margin: 40px 0; display: block; }
-.header .logo img { height: 150px; }
+.header .logo { text-decoration:none !important; margin:30px 0; display: block; }
+.header .logo img { height: 79px; }
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
-.header h1.logo { margin: 40px 0 30px 0; }
+
 .header .header-topbar {
     margin: 0 auto;
     display: block;
@@ -922,17 +922,22 @@ tr.summary-details-excluded { font-style:italic; }
 .header .quick-access { float:right; padding:28px 0 1px 0; }
 .header .welcome-msg { margin:0; color:#fff; text-align:right; }
 .header .welcome-msg a { color:#ebbc58; }
-.header .form-search { margin:40px 0; }
+
+.header-top-right-panel form{ float:left;}
+
+.header-top-right-panel .social-icons{ float:right; margin-top:32px;}
+
+.header .form-search { margin:30px 0; }
 .header .form-search label { text-align:left; text-indent:-999em; overflow:hidden; display:none; }
 .header .form-search input.input-text { 
     float: left;
     margin: 0 30px;
     padding: 7px 10px;
     border: 1px solid #c5c5c5;
-    width: 138px;
-    font-family: Verdana;
-    font-size: 12px;
-    color: #74736a;
+    width: 222px;
+    font-family: 'Raleway_light';
+    font-size: 13px;
+    color: #bdbdbc;
     background-color:transparent;
 }
 .header .form-search button.button { 
@@ -950,6 +955,9 @@ tr.summary-details-excluded { font-style:italic; }
 .header .form-search .search-autocomplete li .amount { float:right; font-weight:bold; }
 .header .form-search .search-autocomplete li.odd { background-color:#fffefb; }
 .header .form-search .search-autocomplete li.selected { background-color:#f7e8dd; }
+
+.shipping-container{}
+
 .header .form-language { 
     float: left;
     margin-left: 5px;
@@ -975,7 +983,6 @@ tr.summary-details-excluded { font-style:italic; }
     left: 0;
     top: 0;
     text-align: center;
-    background: url(../images/left-side-bg.png) repeat-y;
     height: 100%;
 }
 /********** < Navigation */
@@ -996,10 +1003,10 @@ tr.summary-details-excluded { font-style:italic; }
 #nav li {  }
 #nav li.active a { color:#d96708; }
 #nav a {
-    color: #4e4d49;
-    font-size: 14px;
-    font-weight: normal;
-    font-family: "PTSans_Caption";
+    color: #1e1e1e;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Raleway_Regular';
 }
 #nav > li > a {
     text-transform: uppercase;
@@ -3156,9 +3163,6 @@ div.top-cart .block-content ol li {
 }
 .header div.social-icons{
     width: 160px;
-    display: block;
-    position: fixed;
-    bottom: 80px;
 }
 div.social-icons{
     display: block;
