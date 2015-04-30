@@ -77,12 +77,26 @@
 		slideWidth: 0,
 		
 		// CALLBACKS
-		onSliderLoad: function() {},
+		onSliderLoad: function() {
+                    jQuery('.bxslider').children('li').each(function(){
+                            if(jQuery(this).is(':visible') == true){
+                                var color_theme = jQuery(this).children('img').attr('data-color');                                    
+                                jQuery('.nav-container ul').removeClass('lightcolor');
+                                if(color_theme == 'light'){
+                                    jQuery('.nav-container ul').addClass('lightcolor');
+                                }
+                            }
+                    });
+                },
 		onSlideBefore: function() {},
 		onSlideAfter: function() {
 			jQuery('.bxslider').children('li').each(function(){
 				if(jQuery(this).is(':visible') == true){
-					var color_theme = jQuery(this).children('img').attr('data-color');                            
+                                    var color_theme = jQuery(this).children('img').attr('data-color');                                    
+                                    jQuery('.nav-container ul').removeClass('lightcolor');
+                                    if(color_theme == 'light'){
+                                        jQuery('.nav-container ul').addClass('lightcolor');
+                                    }
 				}
 			});
         },
