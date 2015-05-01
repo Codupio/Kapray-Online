@@ -10,8 +10,11 @@ $_category = Mage::getModel('catalog/category')->setStoreId($storeId);
 $_cat = $_category->load(Mage::app()->getStore()->getRootCategoryId());
 
 ?>
-
-<div class="nav-container">
+<?php if ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_rewrite'=>true))):?>
+    <div class="nav-container">
+<?php else:?>
+    <div class="nav-container inner-nav">
+<?php endif?> 
     <a id="mobnav"><?php echo $this->__('Menu'); ?></a>
 <?php
 function hasMenuChildren($_cat){

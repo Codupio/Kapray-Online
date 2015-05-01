@@ -35,7 +35,7 @@
         </div>
         
         <div class="filterproducts col1-layout" style="display: none;">
-            <ul class="special_menu">
+            <!-- <ul class="special_menu">
             <?php
                 $store = Mage::app()->getStore();
                 $code  = $store->getCode();
@@ -58,7 +58,7 @@
             <?php
                 }
             ?>
-            </ul>
+            </ul> -->
             <a href="javascript:void(0)" class="close">Close</a>
             <span class="page-controls">
                 <a href="javascript:void(0)" class="page-prev">Prev</a>
@@ -78,8 +78,9 @@
                     <?php echo $this->getChildHtml('topMenu'); ?>
                     <?php echo $this->getChildHtml('topSearch'); ?>
                     <div class="clear"></div>
-                    <?php echo $this->getChildHtml('topSpecialMenu'); ?>
-                    <div class="clear"></div>
+                    <div class="cus_catgoty_filter"></div>                
+                    <!-- <?php echo $this->getChildHtml('topSpecialMenu'); ?>-->                    
+                    <div class="clear"></div> 
                 </div>
                 <?php echo $this->getChildHtml('socialIcons'); ?>
                 <?php echo $this->getChildHtml('copyrights'); ?>
@@ -97,7 +98,7 @@
             <div class="clearer"></div>
         </div>
         <div class="filterproducts col1-layout" style="display: none;">
-            <ul class="special_menu">
+            <!-- <ul class="special_menu">
             <?php
                 $store = Mage::app()->getStore();
                 $code  = $store->getCode();
@@ -120,7 +121,7 @@
             <?php
                 }
             ?>
-            </ul>
+            </ul> -->
             <a href="javascript:void(0)" class="close">Close</a>
             <span class="page-controls">
                 <a href="javascript:void(0)" class="page-prev">Prev</a>

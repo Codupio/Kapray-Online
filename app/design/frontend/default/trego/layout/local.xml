@@ -57,7 +57,7 @@ Default layout, loads most of the pages
             <action method="removeLinkByUrl"><url helper="catalogsearch/getAdvancedSearchUrl" /></action>
         </reference>
         <remove name="return_link" />
-        <reference name="catalog.topnav">
+        <reference name="catalog.topnav">            
             <block type="page/html_topmenu" name="catalog.topnav1" template="trego/topmenu/type1.phtml"/>
             <block type="page/html_topmenu" name="catalog.topnav2" template="trego/topmenu/type2.phtml"/>
             <block type="page/html_topmenu" name="catalog.topnav3" template="trego/topmenu/type3.phtml"/>
@@ -86,7 +86,8 @@ Default layout, loads most of the pages
                         <action method="setBlockId"><block_id>category_right_block</block_id></action>
                     </block>
                 </block>
-            </block>
+            </block>                       
+            
         </reference>
     </catalog_category_default>
     <catalog_category_layered>

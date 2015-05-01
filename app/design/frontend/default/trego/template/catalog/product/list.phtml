@@ -162,11 +162,14 @@
         </ul>
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
-        <div class="category-right">
+        <div class="category-right" style="display: none;">
         <?php
             echo $this->getChildHtml("category-right");
         ?>
         </div>
+        <script type="text/javascript">
+            jQuery(".block-layered-nav").detach().appendTo('.cus_catgoty_filter');            
+        </script>
     <div class="toolbar-bottom">
         <?php echo $this->getToolbarHtml() ?>
     </div>
