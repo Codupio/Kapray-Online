@@ -51,7 +51,7 @@
 		pagerCustom: null,
 		
 		// CONTROLS
-		controls: false,
+		controls: true,
 		nextText: 'Next',
 		prevText: 'Prev',
 		nextSelector: null,
@@ -82,24 +82,56 @@
                             if(jQuery(this).is(':visible') == true){
                                 var color_theme = jQuery(this).children('img').attr('data-color');                                    
                                 jQuery('.nav-container ul').removeClass('lightcolor');
+                                jQuery('.copyrights').removeClass('light-copyrights');
+                                jQuery('.input-text').removeClass('light-input-text');
+                                jQuery('.facebook-icon').removeClass('facebook-light-icon');
+                                jQuery('.twitter-icon').removeClass('twitter-light-icon');
+                                jQuery('.pinterest-icon').removeClass('pinterest-light-icon');
+                                jQuery('.instagram-icon').removeClass('instagram-light-icon');
+                                jQuery('.vimeo-icon').removeClass('vimeo-light-icon');
+                                jQuery('.shipping-container').removeClass('light-shipping-container');
                                 if(color_theme == 'light'){
                                     jQuery('.nav-container ul').addClass('lightcolor');
+                                    jQuery('.copyrights').addClass('light-copyrights');
+                                    jQuery('.input-text').addClass('light-input-text');
+                                    jQuery('.facebook-icon').addClass('facebook-light-icon');
+                                    jQuery('.twitter-icon').addClass('twitter-light-icon');
+                                    jQuery('.pinterest-icon').addClass('pinterest-light-icon');
+                                    jQuery('.instagram-icon').addClass('instagram-light-icon');
+                                    jQuery('.vimeo-icon').addClass('vimeo-light-icon');
+                                    jQuery('.shipping-container').addClass('light-shipping-container');
                                 }
                             }
                     });
                 },
 		onSlideBefore: function() {},
 		onSlideAfter: function() {
-			jQuery('.bxslider').children('li').each(function(){
-				if(jQuery(this).is(':visible') == true){
-                                    var color_theme = jQuery(this).children('img').attr('data-color');                                    
-                                    jQuery('.nav-container ul').removeClass('lightcolor');
-                                    if(color_theme == 'light'){
-                                        jQuery('.nav-container ul').addClass('lightcolor');
-                                    }
-				}
-			});
-        },
+                    jQuery('.bxslider').children('li').each(function(){
+                        if(jQuery(this).is(':visible') == true){
+                            var color_theme = jQuery(this).children('img').attr('data-color');                                    
+                            jQuery('.nav-container ul').removeClass('lightcolor');
+                            jQuery('.copyrights').removeClass('light-copyrights');
+                            jQuery('.input-text').removeClass('light-input-text');
+                            jQuery('.facebook-icon').removeClass('facebook-light-icon');
+                            jQuery('.twitter-icon').removeClass('twitter-light-icon');
+                            jQuery('.pinterest-icon').removeClass('pinterest-light-icon');
+                            jQuery('.instagram-icon').removeClass('instagram-light-icon');
+                            jQuery('.vimeo-icon').removeClass('vimeo-light-icon');
+                            jQuery('.shipping-container').removeClass('light-shipping-container');
+                            if(color_theme == 'light'){
+                                jQuery('.nav-container ul').addClass('lightcolor');
+                                jQuery('.copyrights').addClass('light-copyrights');
+                                jQuery('.input-text').addClass('light-input-text');
+                                jQuery('.facebook-icon').addClass('facebook-light-icon');
+                                jQuery('.twitter-icon').addClass('twitter-light-icon');
+                                jQuery('.pinterest-icon').addClass('pinterest-light-icon');
+                                jQuery('.instagram-icon').addClass('instagram-light-icon');
+                                jQuery('.vimeo-icon').addClass('vimeo-light-icon');
+                                jQuery('.shipping-container').addClass('light-shipping-container');
+                            }
+                        }
+                    });
+            },
 		onSlideNext: function() {},
 		onSlidePrev: function() {}
 	}
