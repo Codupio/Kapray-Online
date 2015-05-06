@@ -3,6 +3,25 @@
  * Template for Mage_Page_Block_Html
  */
 ?>
+<?php 
+/************************  AJAX PAGER  **********************************/
+//echo ;
+if($this->getRequest()->getParam('ajax')==true   ){ ?>
+<div class="col-right sidebar"><?php echo $this->getChildHtml('right') ?></div>
+<div class="col-main">
+ <!-- start global messages -->
+<?php echo $this->getChildHtml('global_messages') ?>
+<!-- end global messages -->
+<!-- start content -->
+<?php echo $this->getChildHtml('content') ?>
+<!-- end content -->
+</div>
+
+<?php 
+}else{ 
+/************************ eof AJAX PAGER  **********************************/
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
 <head>
@@ -32,3 +51,9 @@
 <?php echo $this->getAbsoluteFooter() ?>
 </body>
 </html>
+
+<?php 
+/************************  AJAX PAGER  **********************************/
+}
+/************************ eof AJAX PAGER  **********************************/					 
+?>

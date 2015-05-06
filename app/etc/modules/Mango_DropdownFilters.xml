@@ -1,0 +1,14 @@
+
+<config>
+    <modules>
+        <Mango_DropdownFilters>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mango_Jqueryfiles/>
+                <Mango_Frontendupdates/>
+            </depends>
+
+        </Mango_DropdownFilters>
+    </modules>
+</config>
