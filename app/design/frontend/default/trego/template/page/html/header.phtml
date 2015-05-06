@@ -1,7 +1,7 @@
-<div class="header-container">
-    
-    <!-- Homepage Sidebar -->
+<!-- Homepage Sidebar -->
     <?php if ($this->getIsHomePage()):?>
+    <div class="header-container">
+    
     <div class="header home-header">
     	<div class="header-top-nav">
             <div class="header-top-left-panel f-left">
@@ -70,7 +70,8 @@
     
     <!-- Other Pages Sidebar -->
     <?php else:?>
-    <div class="header">
+    <div class="header-container inner-header-container">
+    <div class="header inner-page-header">
         <div class="header-bground">
             <div class="header-sidebar">                
                 <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>   

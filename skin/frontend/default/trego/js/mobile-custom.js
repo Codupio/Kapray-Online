@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
     });
 	
 /*
-    if(jQuery(window).height()>550)
+	if(jQuery(window).height()>550)
         jQuery('.box-scroll').css('height',(jQuery(window).height()-400)+"px");
     else
         jQuery('.box-scroll').css('height',"150px");

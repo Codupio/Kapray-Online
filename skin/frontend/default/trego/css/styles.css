@@ -904,6 +904,8 @@ tr.summary-details-excluded { font-style:italic; }
 /* Header ================================================================================ */
 .logo {  }
 .header-top-nav { width:95%; margin:0px auto;}
+
+.inner-header-container { position:relative;}
 .header-container { 
     position: fixed;
     width: 100%;
@@ -1003,6 +1005,9 @@ letter-spacing: 2px;}
 .header .links a { color:#ebbc58; }
 .header-container .top-container { clear:both; padding:5px 10px 0 12px; text-align:right; }
 .header-container .top-container a { font-size:11px; color:#ebbc58; }
+
+.inner-page-header .header-sidebar{ position:relative; float:left;}
+
 .header .header-sidebar {
     width: 219px;
     position: fixed;
