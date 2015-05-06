@@ -28,8 +28,6 @@ jQuery(document).ready(function(){
         });
     });
 	
-	jQuery(".inner-box-scroll #nav li").click(function() {
-    });
 /*
     if(jQuery(window).height()>550)
         jQuery('.box-scroll').css('height',(jQuery(window).height()-400)+"px");
