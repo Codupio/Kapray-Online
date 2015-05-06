@@ -1,0 +1,62 @@
+<?php
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+/**********************************************
+ *        MAGENTO EDITION USAGE NOTICE        *
+ **********************************************/
+/* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+/**********************************************
+ *        DISCLAIMER                          *
+ **********************************************/
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ **********************************************
+ * @category   Belvg
+ * @package    Belvg_Quickviewpro
+ * @copyright  Copyright (c) 2010 - 2012 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+    
+    $helper     = $this->helper('quickviewpro');
+    $productIds = $this->getProductIds();
+?>
+<?php if ($helper->isEnabled() && $productIds): ?>
+    <?php
+        $settings = $helper->getSettings();
+
+        if ($settings['jsposition'] == 'glass') {
+            $button = '<img src="' . $helper->getGlassButtonImg() . '" alt="' . $this->__('Quickview') . '"/>';
+        } else {
+            $button = $this->__('Quickview');
+        }
+
+        $containerClass = '.' . $this->getContainerClass();
+    ?>
+
+    <script type="text/javascript">
+        if (typeof Quickview != 'undefined') {
+            quickview[<?php echo $this->getScriptId() ?>] = new Quickview({
+                itemTags       : '<?php echo $containerClass ?> .products-grid .item, <?php echo $containerClass ?> .products-list .item',
+                settings       : <?php echo json_encode($settings) ?>,
+                productIds     : <?php echo json_encode($productIds) ?>,
+                cachePrefix    : '<?php echo $helper->getJsCachePrefix() ?>',
+                ajaxUrl        : '<?php echo Mage::getUrl('catalog/product/view') ?>',
+                buttonTemplate : '<a class="quickviewpro-button" rel="{{productId}}" href="javascript:void(0);"><span><?php echo $button ?></span></a>'
+            });
+
+            quickview[<?php echo $this->getScriptId() ?>].init();
+        }
+    </script>
+<?php endif ?>
