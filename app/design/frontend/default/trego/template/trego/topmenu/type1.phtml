@@ -10,9 +10,9 @@ $_category = Mage::getModel('catalog/category')->setStoreId($storeId);
 $_cat = $_category->load(Mage::app()->getStore()->getRootCategoryId());
 
 ?>
-<?php if ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_rewrite'=>true))):?>
+<?php if ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_rewrite'=>true))): $cus_current_page="home"; ?>
     <div class="nav-container">
-<?php else:?>
+<?php else: $cus_current_page="other"?>
     <div class="nav-container inner-nav">
 <?php endif?> 
     <a id="mobnav"><?php echo $this->__('Menu'); ?></a>
@@ -37,12 +37,12 @@ function cmpCatPosition($a, $b) {
     return ($a->position > $b->position) ? 1 : -1;
 }
 
-function showChildrenCategories($_category, $level, $level_limit){
-    $storeId = Mage::app()->getStore()->getId();
+function showChildrenCategories($_category, $level, $level_limit, $cus_current_page){    
+    $storeId = Mage::app()->getStore()->getId();    
     $html = '';
     if($level == 0){
         $html .= '<ul id="nav" class="default">';
-    } else {
+    } else {         
         $html .= '<ul class="level'.$level.'">';
     }
     $_children = $_category->getChildren();
@@ -59,7 +59,16 @@ function showChildrenCategories($_category, $level, $level_limit){
 
     foreach ($categoryChildren as $_child){
         if($_child->getIncludeInMenu()){
-            $html .= '<li class="level'.$level;
+            if($cus_current_page == 'other'){
+                if(Mage::registry('current_category')->getName() == $_child->getName()){
+                    $addCustomClass=" cus-active";
+                }else{
+                    $addCustomClass="";
+                }
+            }else{
+               $addCustomClass=""; 
+            }
+            $html .= '<li class="level'.$level.$addCustomClass;
             if( hasMenuChildren($_child) && $level < $level_limit ){
                 $html .= ' parent';
             }
@@ -80,7 +89,8 @@ function showChildrenCategories($_category, $level, $level_limit){
     $html .= '</ul>';
     return $html;
 }
-echo showChildrenCategories($_cat, 0, $show_levels);
+
+echo showChildrenCategories($_cat, 0, $show_levels, $cus_current_page);
 ?>
 </div><?php //content ?>
 <script type="text/javascript">
