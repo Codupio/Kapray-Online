@@ -15,17 +15,18 @@ a {
     }
 a:hover { color: #4e4d49; }
 button.button span { 
-    background: #535451; 
+    background: #362f2d; 
     color: #ffffff; 
-        font-family: Raleway_Light;
-            font-size: 12px;
-    }
+    font-family: Raleway_Light;
+    font-size: 12px;
+	border:1px solid #000;
+}
 button.button:hover span { background: #2f3538; color: #ffffff; }
 button.button:active span { background: #2f3538; color: #ffffff; }
 .sale-product-icon { background: #d04d49; color: #ffffff; }
 .new-product-icon { background: #2f3538; color: #ffffff; }
 #opc-review .data-table tfoot td.last strong .price, #opc-review td.last .price, .cart .totals tfoot td .price, .cart-table td.sub-total, .top-cart .qty-price .price, .block .regular-price, .block .regular-price .price, .price-box .price, .special-price .price { 
-    color: #d64c35; 
+    color: #595959; 
         }
 .block .block-title strong {
         }

@@ -10,8 +10,10 @@
     border-top: 1px solid #DDDDDD;
     display: none;
 }
+.inner-box-scroll #nav .parent span em{ display:none;}
 @media only screen and (min-width: 1025px)  {
     .tablet-overlay { display: none !important; }
+	
     #nav.default {
         padding: 0 0 0 30px;
         display: block;
@@ -33,6 +35,10 @@
         color: #fff !important;
         background: #585858;
     }
+	.inner-box-scroll #nav.default li > a:hover, .inner-box-scroll #nav.default li.over > a {
+        color: #000 !important;
+        background:none;
+    }
     #nav.default li .shown-sub ul.shown-sub, #nav.default li .shown-sub li div.shown-sub {
         left: 170px;
     }
@@ -44,6 +50,15 @@
     #nav.default ul.level1 {
         position: fixed;
     }
+	
+	.inner-box-scroll #nav.default ul.level1 {
+        position: relative; top:0px !important; left: 0px; display:none !important;
+	}
+	
+	.inner-box-scroll #nav.default ul li > a { color:#1e1e1e !important; background:none; line-height:25px;}
+	
+	.inner-box-scroll #nav.default ul li { padding:0 0 0 10px;}
+	
     #nav ul span, #nav ul li.last li span {
         padding: 0 15px;
     }

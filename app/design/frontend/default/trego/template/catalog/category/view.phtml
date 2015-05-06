@@ -5,6 +5,7 @@
  * @see Mage_Catalog_Block_Category_View
  */
 ?>
+
 <?php
     $_helper    = $this->helper('catalog/output');
     $_category  = $this->getCurrentCategory();
@@ -14,6 +15,7 @@
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
 ?>
+<div class="cus-category-toolbar">
 <div class="page-title category-title">
     <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
         <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
@@ -33,3 +35,5 @@
 <?php else: ?>
     <?php echo $this->getProductListHtml() ?>
 <?php endif; ?>
+<div class="clear"></div>
+</div>

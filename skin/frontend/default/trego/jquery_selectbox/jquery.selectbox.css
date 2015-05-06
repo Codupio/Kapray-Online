@@ -3,7 +3,7 @@
 	font-family: Verdana, Arial, sans-serif;
     font-size: 12px;
     font-weight: normal;
-    height: 24px;
+    height: 29px;
     position: relative;
     width: 158px;
     text-align: left;
@@ -15,15 +15,17 @@
 }
 .sbSelector{
 	display: block;
-    height: 22px;
+    height: 29px;
     left: 0;
-    line-height: 22px;
+    line-height: 29px;
     border: 1px solid #ccc;
     outline: none;
     overflow: hidden;
     position: absolute;
     top: 0;
     width: 120px;
+	letter-spacing:1px;
+	font-family: "PTSans_Caption";
 }
 .sbSelector:link, .sbSelector:visited, .sbSelector:hover{
 	color: #6d6c67;
@@ -32,10 +34,9 @@
     padding: 0 5px;
 }
 .sbToggle{
-	background: url(../images/select-icons.png) 6px -32px no-repeat;
-    border: 1px solid #ccc;
+	background: url(../images/select-icons.png) 6px -27px no-repeat;
     display: block;
-    height: 22px;
+    height: 29px;
     outline: none;
     position: absolute;
     right: 0;
@@ -43,13 +44,13 @@
     width: 23px;
 }
 .sbToggle:hover{
-	background: url(../images/select-icons.png) 6px -32px no-repeat;
+	background: url(../images/select-icons.png) 6px -27px no-repeat;
 }
 .sbToggleOpen{
-	background: url(../images/select-icons.png) 6px 6px no-repeat;
+	background: url(../images/select-icons.png) 6px 12px no-repeat;
 }
 .sbToggleOpen:hover{
-	background: url(../images/select-icons.png) 6px 6px no-repeat;
+	background: url(../images/select-icons.png) 6px 12px no-repeat;
 }
 .sbHolderDisabled{
 	background-color: #3C3C3C;

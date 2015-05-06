@@ -73,24 +73,27 @@
     <div class="header">
         <div class="header-bground">
             <div class="header-sidebar">                
-                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>                
-                <div class="box-scroll">
+                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>   
+                             
+                <div class="box-scroll inner-box-scroll">
+                	<?php echo $this->getChildHtml('topSearch'); ?>
+                     <div class="clear"></div>
                     <?php echo $this->getChildHtml('topMenu'); ?>
-                    <?php echo $this->getChildHtml('topSearch'); ?>
                     <div class="clear"></div>
-                    <div class="cus_catgoty_filter"></div>                
-                    <!-- <?php echo $this->getChildHtml('topSpecialMenu'); ?>-->                    
+                    <div class="cus_catgoty_filter"></div>
                     <div class="clear"></div> 
                 </div>
-                <?php echo $this->getChildHtml('socialIcons'); ?>
-                <?php echo $this->getChildHtml('copyrights'); ?>
+                <div class="cus-category-social-icons">
+					<?php echo $this->getChildHtml('socialIcons'); ?>
+                    <?php echo $this->getChildHtml('copyrights'); ?>
+                    <div class="clear"></div>
+                </div>
             </div>
             <a href="javascript:void(0)" class="filterproducts-link">&nbsp;</a>
         </div>
         <div class="header-topbar">
             <div class="quick-access">
                 <?php echo $this->getChildHtml('store_language') ?>
-                <?php echo $this->getChildHtml('custom_currency_selector') ?>
                 <?php echo $this->getChildHtml('cart_cartheader') ?>
             </div>
             <h1 class="page-title"></h1>
