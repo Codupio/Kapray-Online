@@ -349,6 +349,7 @@ input[type="text"]         { -webkit-appearance: none; border-radius: 0; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { background:#fff; padding:25px 30px; text-align:left; }
 .main-container { margin-left: 220px; padding: 79px 10px 0 10px;}
+.inner-page-body .main-container{ margin-left:165px; padding:0px 10px 0 10px;}
 .main { width:860px; margin:0 auto; min-height:400px; padding: 10px 0 7px 0; text-align:left; position:relative;}
 
 .cus-category-toolbar .category-products .toolbar .price, .cus-category-toolbar .category-products .toolbar .view-mode, .cus-category-toolbar .category-products .toolbar .btn-compare{ display:none;}
@@ -905,7 +906,8 @@ tr.summary-details-excluded { font-style:italic; }
 .logo {  }
 .header-top-nav { width:95%; margin:0px auto;}
 
-.inner-header-container { position:relative;}
+.inner-page-body .inner-header-container { position:relative;}
+
 .header-container { 
     position: fixed;
     width: 100%;
@@ -915,6 +917,8 @@ tr.summary-details-excluded { font-style:italic; }
     display: block;
 }
 .header {  margin-left: 220px; padding: 0 10px;}
+
+.inner-page-header{ margin-left:155px; padding:0px;}
 
 .home-header {  margin-left:0px; padding:0px;}
 
@@ -1006,7 +1010,7 @@ letter-spacing: 2px;}
 .header-container .top-container { clear:both; padding:5px 10px 0 12px; text-align:right; }
 .header-container .top-container a { font-size:11px; color:#ebbc58; }
 
-.inner-page-header .header-sidebar{ position:relative; float:left;}
+.inner-page-body .inner-page-header .header-sidebar{ position:absolute; float:left;}
 
 .header .header-sidebar {
     width: 219px;

@@ -13,7 +13,7 @@
 .inner-box-scroll #nav .parent span em{ display:none;}
 @media only screen and (min-width: 1025px)  {
     .tablet-overlay { display: none !important; }
-	
+	.inner-box-scroll .inner-nav #nav.default li.cus-active ul.level1{ display:block !important;}
     #nav.default {
         padding: 0 0 0 30px;
         display: block;
