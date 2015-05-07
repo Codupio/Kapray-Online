@@ -2,7 +2,12 @@
 <layout version="0.1.0">
     <default>
         <reference name="head">
-           
+            <!--  bof remove or comment if your theme already includes jquery -->
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/js/jquery-1.11.1.js</name>
+            </action>
+            <!--  eof remove if your theme already includes jquery -->
             <!--  bof remove or comment if your theme includes jquery < 1.9 -->
             <action method="addItem">
                 <type>skin_js</type>
