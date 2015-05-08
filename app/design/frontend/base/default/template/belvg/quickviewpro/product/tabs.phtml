@@ -56,17 +56,9 @@
         <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
     </div>
 <?php else: ?>
-    <div class="quickviewpro_tabs_block">
-        <ul class="tabs_title quickviewpro_tabs">
-            <?php foreach ($title AS $key => $value): ?>
-                <li id="tabs_item<?php echo $key ?>" class="item active"><a href="javascript:;"><?php echo $value ?></a></li>
-            <?php endforeach ?>
-        </ul>
-        <div class="tabs_content">
-            <?php foreach ($desc AS $key => $value): ?>
-                <div id="tabs_item<?php echo $key ?>_content"><?php echo $value ?></div>
-            <?php endforeach ?>
-        </div>
-    </div>
+    <div class="short-description">
+        <h2><?php echo $this->__('Short Description') ?></h2>
+        <div class="std"><?php echo $desc[0]; ?></div>
+    </div>   
 <?php endif ?> 
 

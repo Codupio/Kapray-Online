@@ -8,9 +8,9 @@ $show_levels -= 1;
 //Get category model
 $_category = Mage::getModel('catalog/category')->setStoreId($storeId);
 $_cat = $_category->load(Mage::app()->getStore()->getRootCategoryId());
-
 ?>
-<?php if ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_rewrite'=>true))): $cus_current_page="home"; ?>
+<?php
+if ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_rewrite'=>true))): $cus_current_page="home"; ?>
     <div class="nav-container">
 <?php else: $cus_current_page="other"?>
     <div class="nav-container inner-nav">
@@ -37,7 +37,7 @@ function cmpCatPosition($a, $b) {
     return ($a->position > $b->position) ? 1 : -1;
 }
 
-function showChildrenCategories($_category, $level, $level_limit, $cus_current_page){    
+function showChildrenCategories($_category, $level, $level_limit, $cus_current_page, $ControllerName){    
     $storeId = Mage::app()->getStore()->getId();    
     $html = '';
     if($level == 0){
@@ -60,10 +60,14 @@ function showChildrenCategories($_category, $level, $level_limit, $cus_current_p
     foreach ($categoryChildren as $_child){
         if($_child->getIncludeInMenu()){
             if($cus_current_page == 'other'){
-                if(Mage::registry('current_category')->getName() == $_child->getName()){
-                    $addCustomClass=" cus-active";
+                if($ControllerName=='product' || $ControllerName=='category'){                   
+                    if(Mage::registry('current_category')->getName() == $_child->getName()){
+                        $addCustomClass=" cus-active";
+                    }else{
+                        $addCustomClass="";
+                    }
                 }else{
-                    $addCustomClass="";
+                    $addCustomClass=""; 
                 }
             }else{
                $addCustomClass=""; 
@@ -90,7 +94,7 @@ function showChildrenCategories($_category, $level, $level_limit, $cus_current_p
     return $html;
 }
 
-echo showChildrenCategories($_cat, 0, $show_levels, $cus_current_page);
+echo showChildrenCategories($_cat, 0, $show_levels, $cus_current_page, $this->getRequest()->getControllerName());
 ?>
 </div><?php //content ?>
 <script type="text/javascript">
