@@ -216,17 +216,6 @@
 
     .products-grid .quickviewpro-button {
         z-index: 999;
-		top: 38% !important;
-		left: 0;
-		width: 45px;
-		right:0;
-		margin:auto;
-		margin-left:153px;
-		display:none !important;
-    }
-	
-	.products-grid .product-image-area:hover .quickviewpro-button, .products-grid .product-image-area .quickviewpro-button:hover {
-		display:block !important;
     }
 
     .quickviewpro-popup .quickviewpro_share {

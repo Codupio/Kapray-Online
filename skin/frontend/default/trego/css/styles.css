@@ -3504,12 +3504,11 @@ ul.cart-button-set{
     list-style: none;
     margin: 0;
     padding: 0;
-    position:absolute;
+    position:relative;
     left: 0;
     bottom: 0;
-	right:0;
-	top:45%;
-	margin-left:50%;
+    background: #535451;
+    width: 100%;
     z-index: 10;
 }
 ul.cart-button-set li{
@@ -3517,17 +3516,18 @@ ul.cart-button-set li{
     padding: 10px;    
     display: block;
     overflow: hidden;
+    border-left: 1px solid #fff;
 }
 ul.cart-button-set li a{
     display: block;
     overflow: hidden;
-    width: 45px;
-	height:45px;
+    width: 480px;
     cursor: pointer;
     text-transform: uppercase;
     font-family: Verdana;
-    font-size: 0px;
+    font-size: 12px;
     color: #fff;
+    padding-left: 30px;    
 }
 ul.cart-button-set li a.addtocart {
     background: url(../images/cart-icon.png) no-repeat;
@@ -3535,7 +3535,9 @@ ul.cart-button-set li a.addtocart {
 ul.cart-button-set li a.addtowishlist {
     background: url(../images/wishlist-icon.png) no-repeat;
 }
-
+ul.cart-button-set li a.addtocompare {
+    background: url(../images/compare-icon.png) no-repeat;
+}
 ul.cart-button-set li.first{
     border-left: 0;
 }
