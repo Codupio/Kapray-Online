@@ -3498,23 +3498,23 @@ a.vimeo-light-icon {
 
 /* Button Set */
 .hover-image{ display:none; width:100%; position:absolute; left:0; right:0; bottom:0; top:0; height:100%;   background-color: rgba(255, 255, 255, 0.5); z-index:99;}
-.product-image-area:hover .hover-image{ display:block;}
+
+.products-grid .item:hover .hover-image{ display:block;}
+
 .hover-img-link{  bottom: 0;  left: 0;  position: absolute;  right: 0;  top: 0;}
 ul.cart-button-set{
     list-style: none;
     margin: 0;
     padding: 0;
     position:absolute;
-    left: 0;
-    bottom: 0;
-	right:0;
-	top:45%;
-	margin-left:50%;
+    left: 50%;
+	top:50%;
     z-index: 10;
+	width:45px;
+	margin-left:8px;
 }
 ul.cart-button-set li{
     float: left;
-    padding: 10px;    
     display: block;
     overflow: hidden;
 }

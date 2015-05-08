@@ -142,51 +142,24 @@
     }
 
     .quickviewpro-button {
-        font-size: 1em;
         text-align: center;
+		background:url(../images/quickviewpro/zoom-icon.png) no-repeat;
         color: #fff;
-        background: rgb(0,0,0); /* Old browsers */
-        background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 99%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(99%, rgba(80,80,80,1))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 99%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 99%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 99%); /* IE10+ */
-        background: linear-gradient(left, rgba(0,0,0,1) 0%, rgba(80,80,80,1) 99%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#555555', GradientType=1 ); /* IE6-9 */
-        border-radius: 0px;
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border: 1px solid rgb(0,0,0);
         display: none;
-        opacity: 0.8;
-        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80) padding: 6px 9px;
         position: absolute;
         text-decoration: none !important;
     }
 
-    .quickviewpro-button:hover {
-        color: #fff;
-        background: rgb(68,68,68); /* Old browsers */
-        background: -moz-linear-gradient(left, rgba(68,68,68,1) 0%, rgba(80,80,80,1) 99%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(68,68,68,1)), color-stop(99%, rgba(80,80,80,1))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(left, rgba(68,68,68,1) 0%, rgba(80,80,80,1) 99%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(left, rgba(68,68,68,1) 0%, rgba(80,80,80,1) 99%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(left, rgba(68,68,68,1) 0%, rgba(80,80,80,1) 99%); /* IE10+ */
-        background: linear-gradient(left, rgba(68,68,68,1) 0%, rgba(80,80,80,1) 99%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#555555', GradientType=1 ); /* IE6-9 */
-        border-radius: 0px;
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border: 1px solid rgb(68,68,68);
-    }
-
-    .quickviewpro-button-center {
+   .quickviewpro-button-center {
         top: 26%;
         left: 50%;
-        width: 120px;
-        margin-left: -60px;
-        padding: 10px 0px;
+        width: 45px;
+        margin-left: -45px;
+        padding: 23px 0px;
     }
+	
+	.quickviewpro-button - .cus-product-price  { background:#000;}
+
 
     .quickviewpro-button.quickviewpro-button-glass {
         background: none;
@@ -214,16 +187,11 @@
         padding: 10px 0px;
     }
 
-    .products-grid .quickviewpro-button {
-        z-index: 999;
-		top: 38% !important;
-		left: 0;
-		width: 45px;
-		right:0;
-		margin:auto;
-		margin-left:153px;
-		display:none !important;
-    }
+	.products-grid .quickviewpro-button {
+		z-index: 999;
+	}
+	
+	.products-grid .quickviewpro-button span{ display:none;}
 	
 	.products-grid .product-image-area:hover .quickviewpro-button, .products-grid .product-image-area .quickviewpro-button:hover {
 		display:block !important;
