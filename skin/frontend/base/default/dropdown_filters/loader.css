@@ -1,6 +1,5 @@
 .layered-navigation-select{width:100%;}
 
-.category-products,.col-main{position:relative;}
 .products-list-loader{position:absolute;top:0px;left:0px;right:0px;bottom:0px;height:100%;width:100%;background: #fff; margin:0px; -moz-opacity:.80; filter:alpha(opacity=80); opacity:.80;z-index: 10000;}
 .products-list-loader div{padding:170px 0px 80px; text-align:center;background: transparent url("loader.gif") center 80px no-repeat; margin:0px;}
 

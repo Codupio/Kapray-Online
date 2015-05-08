@@ -3517,6 +3517,7 @@ ul.cart-button-set li{
     float: left;
     display: block;
     overflow: hidden;
+	width:45px !important;
 }
 ul.cart-button-set li a{
     display: block;
