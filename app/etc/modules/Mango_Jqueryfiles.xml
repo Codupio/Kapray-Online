@@ -1,8 +1,0 @@
-<config>
-	<modules>
-		<Mango_Jqueryfiles>
-			<active>true</active>
-			<codePool>local</codePool>
-		</Mango_Jqueryfiles>
-	</modules>
-</config>

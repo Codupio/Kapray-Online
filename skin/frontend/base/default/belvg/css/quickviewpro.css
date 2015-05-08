@@ -2,9 +2,7 @@
 .quickviewpro-block {
     position: relative;
 }
-    .quickviewpro-block:hover .quickviewpro-button {
-        display: block !important;
-    }
+  
 
 .quickviewpro-hider {
     background: none repeat scroll 0 0 #333333;
@@ -145,19 +143,23 @@
         text-align: center;
 		background:url(../images/quickviewpro/zoom-icon.png) no-repeat;
         color: #fff;
-        display: none;
         position: absolute;
         text-decoration: none !important;
+		left: 0%;
+		opacity: 0;
+	-webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
     }
 
    .quickviewpro-button-center {
         top: 26%;
-        left: 50%;
         width: 45px;
-        margin-left: -45px;
         padding: 23px 0px;
-    }
+	}
 	
+	
+	.products-grid  .item:hover .quickviewpro-button  {left: 50%; margin-left: -45px; opacity: 1;}
 	.quickviewpro-button - .cus-product-price  { background:#000;}
 
 

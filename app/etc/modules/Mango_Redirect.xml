@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-	<modules>
-		<Mango_Redirect>
-			<active>true</active>
-			<codePool>local</codePool>
-		</Mango_Redirect>
-	</modules>
-</config>

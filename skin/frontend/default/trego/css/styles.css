@@ -3497,9 +3497,11 @@ a.vimeo-light-icon {
 }
 
 /* Button Set */
-.hover-image{ display:none; width:100%; position:absolute; left:0; right:0; bottom:0; top:0; height:100%;   background-color: rgba(255, 255, 255, 0.5); z-index:99;}
+.hover-image{ width:100%; position:absolute; left:0; right:0; bottom:0; top:0; height:100%;   z-index:99; -webkit-transition: all 0.5s ease-out 0s; -moz-transition: all 0.5s ease-out 0s; transition: all 0.5s ease-out 0s; overflow:hidden;}
 
-.products-grid .item:hover .hover-image{ display:block;}
+.products-grid .item:hover .hover-image{  background-color: rgba(255, 255, 255, 0.5);}
+
+.products-grid .item:hover .hover-image ul.cart-button-set {right: 50%; opacity: 1;   margin-right: -54px;}
 
 .hover-img-link{  bottom: 0;  left: 0;  position: absolute;  right: 0;  top: 0;}
 ul.cart-button-set{
@@ -3507,17 +3509,21 @@ ul.cart-button-set{
     margin: 0;
     padding: 0;
     position:absolute;
-    left: 50%;
+    right: 0%;
 	top:50%;
     z-index: 10;
 	width:45px;
-	margin-left:8px;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
 }
 ul.cart-button-set li{
     float: left;
     display: block;
     overflow: hidden;
 	width:45px !important;
+
 }
 ul.cart-button-set li a{
     display: block;
@@ -3535,6 +3541,7 @@ ul.cart-button-set li a.addtocart {
 }
 ul.cart-button-set li a.addtowishlist {
     background: url(../images/wishlist-icon.png) no-repeat;
+	
 }
 
 ul.cart-button-set li.first{
