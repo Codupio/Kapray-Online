@@ -36,8 +36,8 @@
 			
 		});
 		
-		<?php if($this->ajaxLayered): ?>
-        $('.block-layered-nav a').on('click', function(e){sliderAjax($(this).attr('href'));e.preventDefault();});    
+	<?php if($this->ajaxLayered): ?>
+            $('.block-layered-nav a').on('click', function(e){alert(); sliderAjax($(this).attr('href'));e.preventDefault();});    
         <?php endif; ?>
         
         

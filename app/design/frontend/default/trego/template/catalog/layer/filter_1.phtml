@@ -1,0 +1,27 @@
+<?php
+/**
+ * Template for filter items block
+ *
+ * @see Mage_Catalog_Block_Layer_Filter
+ */
+?>
+    <ol>
+    <?php
+    foreach ($this->getItems() as $_item): ?>
+        <li class="cus_filter_li">                
+            <?php if ($_item->getCount() > 0):
+                $filter_url=parse_url($_item->getUrl());
+                $filter_url_array=explode("=",$filter_url['query']);           
+                echo '<input class="cus_filter_input" type="checkbox" name="'.$filter_url_array[0].'" value="'.$filter_url_array[1].'">';
+            ?>
+
+            <!-- <a href="<?php echo $this->urlEscape($_item->getUrl()) ?>"><?php echo $_item->getLabel() ?></a> -->
+            <?php echo $_item->getLabel(); ?>
+            <?php else: echo $_item->getLabel() ?>
+            <?php endif; ?>
+            <?php if ($this->shouldDisplayProductCount()): ?>
+            (<?php echo $_item->getCount() ?>)
+            <?php endif; ?>
+        </li>
+    <?php endforeach ?>
+    </ol>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">            
+            <!--  bof remove or comment if your theme includes jquery < 1.9 -->
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/js/jquery-migrate-1.2.1.js</name>
+            </action>
+            <!--  eof remove or comment if your theme includes jquery < 1.9 -->
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/js/jquery-ui-1.9.2.custom.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>jqueryfiles/jQuery-noconflict.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>jqueryfiles/css/smoothness/jquery-ui-1.9.2.custom.css</name>
+            </action>
+        </reference>
+    </default>
+</layout>

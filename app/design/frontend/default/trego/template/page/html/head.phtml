@@ -20,11 +20,14 @@
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>
 <?php echo $this->getIncludes() ?>
 <script type="text/javascript">
-    jQuery(document).ready(function(){
-        jQuery("select").each(function(){
-            jQuery(this).selectbox();
-        });
-    });
+//    jQuery(document).ready(function(){
+//        jQuery("select").each(function(){
+//            if(!jQuery(this).hasClass("layered-navigation-multiselect")){ /* not
+//            to affect the layered navigation */
+//              jQuery(this).selectbox();
+//            }
+//        });
+//    });
     window.addEventListener("load",function() {
         // Set a timeout...
         setTimeout(function(){

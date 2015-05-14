@@ -47,11 +47,11 @@ jQuery(document).ready(function(){
         }
     });
 */
-	jQuery(document.body).on("mouseover",".quickviewpro-button", function(){
-		
-		jQuery(this).prev().prev().children(".hover-image").css("display","block");
-	});
-	jQuery(document.body).on("mouseout",".quickviewpro-button", function(){
-		jQuery(this).prev().prev().children(".hover-image").removeAttr("style");
-	});
+    jQuery(document.body).on("mouseover",".quickviewpro-button", function(){
+
+            jQuery(this).prev().prev().children(".hover-image").css("display","block");
+    });
+    jQuery(document.body).on("mouseout",".quickviewpro-button", function(){
+            jQuery(this).prev().prev().children(".hover-image").removeAttr("style");
+    });       
 });
