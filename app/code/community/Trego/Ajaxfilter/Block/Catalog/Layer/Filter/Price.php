@@ -226,7 +226,7 @@ class Trego_Ajaxfilter_Block_Catalog_Layer_Filter_Price extends Mage_Catalog_Blo
 		$baseUrl = $this->getCurrentUrlWithoutParams();
 		$timeout = $this->getConfigTimeOut();
 		$styles = $this->prepareCustomStyles();
-		
+		$updateTextBoxPriceJs = '';
 		if($this->isAjaxSliderEnabled()){
 			$ajaxCall = 'sliderAjax(url);';
 		}else{
@@ -354,8 +354,10 @@ class Trego_Ajaxfilter_Block_Catalog_Layer_Filter_Price extends Mage_Catalog_Blo
 		$sliderWidth = $this->getConfig('price_slider/price_slider_conf/slider_width');
 		
 		$amountStyle = $this->getConfig('price_slider/price_slider_conf/amount_style');
-		
-		
+		$bgHandle = '';
+		$bgSlider = '';
+		$bgRange = '';
+
 		if($useImage){
 			$handle = $this->getConfig('price_slider/price_slider_conf/handle_image');
 			$range = $this->getConfig('price_slider/price_slider_conf/range_image');

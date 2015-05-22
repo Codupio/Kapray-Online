@@ -6,20 +6,21 @@
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
-        <div class="no-display">
-            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
-            <input type="hidden" name="related_product" id="related-products-field" value="" />
-        </div>
 
         <div class="product-img-box">
             <?php echo $this->getChildHtml('media') ?>
         </div>
 
         <div class="product-shop">
+            <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+			<div class="no-display">
+				<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+				<input type="hidden" name="related_product" id="related-products-field" value="" />
+			</div>
             <div class="product-name">
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
             </div>
-
+            
             <?php echo $this->getChildHtml('alert_urls') ?>
             <?php echo $this->getChildHtml('product_type_data') ?>
             <?php if ($this->canEmailToFriend()): ?>
@@ -33,7 +34,7 @@
                 <p class="availability out-of-stock"><?php echo $this->__('Availability:') ?> <span><?php echo $this->__('Out of Stock') ?></span></p>
             <?php endif; ?>
             <p class="product-sku"><?php echo $this->__('Product Code:') ?> <span><?php echo $_product->getSku() ?></span></p>
-            <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            
             <?php echo $this->getChildHtml('extrahint') ?>
             <?php echo $this->getChildHtml('other');?>
 
@@ -98,7 +99,81 @@
     </div>
 
         <div class="clearer"></div>
+        <?php if(Mage::getStoreConfig('ajaxcart/addtocart/enableproduct')): ?>
+        <script type="text/javascript">
+        //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(button, url) {
+                if (this.validator.validate()) {
+                    var form = this.form;
+                    var oldUrl = form.action;
 
+                    if (url) {
+                       form.action = url;
+                    }
+                    var e = null;
+                    if (!url) {
+                        url = jQuery('#product_addtocart_form').attr('action');
+                    }
+                    url = url.replace("checkout/cart","ajaxcart/index"); // New Code
+                    var data = jQuery('#product_addtocart_form').serialize();
+                    data += '&isAjax=1';
+                    var is_quickview = false;
+					if(jQuery("body").hasClass("quickview-index-view")){
+						is_quickview = true;
+					}
+					if(is_quickview)
+						window.parent.jQuery("#loading-mask").show();
+					else
+						jQuery("#loading-mask").show();
+                    try {
+                        jQuery.ajax({
+                            url : url,
+                            dataType : 'json',
+                            type : 'post',
+                            data : data,
+                            success : function(data) {
+								if(is_quickview)
+									window.parent.jQuery('#loading-mask').hide();
+								else
+	                                jQuery('#loading-mask').hide();
+                                if(data.status == 'ERROR'){
+									if(is_quickview)
+										window.parent.alert(data.message.replace("<br/>",""));
+                                    else
+										alert(data.message.replace("<br/>",""));
+                                }else{
+									if(is_quickview){
+										if(window.parent.jQuery('.footer-menu .links')){
+											window.parent.jQuery('.footer-menu .links').replaceWith(data.toplink);
+										}
+										if(window.parent.jQuery('.mini-cart-layer')){
+											window.parent.jQuery('.mini-cart-layer').replaceWith(data.minicart);
+										}
+										window.parent.jQuery('#after-loading-success-message').show();
+									} else {
+										if(jQuery('.footer-menu .links')){
+											jQuery('.footer-menu .links').replaceWith(data.toplink);
+										}
+										if(jQuery('.mini-cart-layer')){
+											jQuery('.mini-cart-layer').replaceWith(data.minicart);
+										}
+										jQuery('#after-loading-success-message').show();
+									}
+                                }
+                            }
+                        });
+                    } catch (e) {
+                    }                
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+                }
+            }.bind(productAddToCartForm);
+        //]]>
+        </script>
+        <?php else : ?>
         <script type="text/javascript">
         //<![CDATA[
             var productAddToCartForm = new VarienForm('product_addtocart_form');
@@ -149,6 +224,33 @@
                 }
             }.bind(productAddToCartForm);
             
+        //]]>
+        </script>
+        <?php endif;?>
+        <script type="text/javascript">
+        //<![CDATA[
+            productAddToCartForm.submitLight = function(button, url){
+                if(this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    // Remove custom datetime validators
+                    for (var methodName in Validation.methods) {
+                        if (methodName.match(/^validate-datetime-.*/i)) {
+                            delete Validation.methods[methodName];
+                        }
+                    }
+
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
         //]]>
         </script>
     </div>

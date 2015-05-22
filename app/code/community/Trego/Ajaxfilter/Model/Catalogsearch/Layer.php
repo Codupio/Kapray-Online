@@ -27,9 +27,9 @@ class Trego_Ajaxfilter_Model_Catalogsearch_Layer extends Mage_CatalogSearch_Mode
 		$max=$this->getMaxPriceFilter();
 		$min=$this->getMinPriceFilter();
 		
-		if($min && $max){
-			$collection->getSelect()->where(' final_price >= "'.$min.'" AND final_price <= "'.$max.'" ');
-		}
+		if($min >= 0 && $max > 0){
+            $collection->getSelect()->where(' final_price >= "'.$min.'" AND final_price <= "'.$max.'" ');
+        }
 		
 		/*PRICE SLIDER FILTER*/
         return $this;
@@ -41,7 +41,9 @@ class Trego_Ajaxfilter_Model_Catalogsearch_Layer extends Mage_CatalogSearch_Mode
 	* @return currency
 	*/
 	public function getMaxPriceFilter(){
-		return round($_GET['max']/$this->currentRate);
+		if(isset($_GET['max']))
+            return round($_GET['max']/$this->currentRate);
+        return 0;
 	}
 	
 	
@@ -51,7 +53,9 @@ class Trego_Ajaxfilter_Model_Catalogsearch_Layer extends Mage_CatalogSearch_Mode
 	* @return currency
 	*/
 	public function getMinPriceFilter(){
-		return round($_GET['min']/$this->currentRate);
+		if(isset($_GET['min']))
+            return round($_GET['min']/$this->currentRate);
+        return 0;
 	}
     
 }

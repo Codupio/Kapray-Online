@@ -18,11 +18,11 @@
                 <?php $this->resetItemsIterator() ?>
                 <?php for($_i=0;$_i<$this->getRowCount();$_i++): ?>
                     <?php for($_j=0;$_j<$this->getColumnCount();$_j++): ?>
-                <li class="slide item<?php if($_i==0 && $_j==0): ?> first<?php elseif($_i==$this->getRowCount()-1 && $_j==$this->getColumnCount()-1): ?> last<?php endif; ?>">
                         <?php if($_product=$this->getIterableItem()): ?>
-                    <div class="product-image-area" hover_img="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350) ?>" base_img="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350) ?>" >
-                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image">
-                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                <li class="slide item<?php if($_i==0 && $_j==0): ?> first<?php elseif($_i==$this->getRowCount()-1 && $_j==$this->getColumnCount()-1): ?> last<?php endif; ?>">
+                    <div class="product-image-area">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image" product_id="<?php echo $_product->getId()?>">
+                            <img src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(350, 350 * Mage::getStoreConfig("trego_settings/category/ratio_height",$code) / Mage::getStoreConfig("trego_settings/category/ratio_width",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                         </a>
                         <?php 
                             $top_position = 10;

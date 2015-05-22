@@ -135,10 +135,64 @@ $code  = $store->getCode();
 
                             fullWidth:"on",                            // Same time only Enable FullScreen of FullWidth !!
                             fullScreen:"on",                        // Same time only Enable FullScreen of FullWidth !!
-
+                            videoJsPath:"<?php echo $this->getSkinUrl("rs-plugin/videojs/"); ?>",
                             shadow:0                                //0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
 
                         });
+                });
+            </script>
+<?php
+        } else if($_type == 5){
+            $_blockid = Mage::getStoreConfig('slidermenu/slider/cms_blockid6', $code);
+            if(!$_blockid){
+                $_blockid = 'home_slider_6';
+            }
+?>
+            <div class="tile-container">
+                <div class="rtg-caption">
+                    <div id="tileCaption">
+                    </div>
+                    <div id="tileCaption_clone">
+                    </div>
+                </div>
+                <div id="tileGallery" class="rtg-gallery">
+<?php
+                    echo $this->getLayout()->createBlock('cms/block')->setBlockId($_blockid)->toHtml();
+?>
+                    <div style="clear:both;"></div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <script>
+                jQuery(function($) {
+                    $(document).ready(function(){
+                        var item_columns = 3;
+                        var container_width = ($(document).width()-235)*0.6;
+                        
+                        if($(window).width()<=1024){
+                            container_width = ($(window).width()-10)*0.7;
+                        }
+                        if($(window).width()<=767){
+                            item_columns = 3;
+                            container_width = $(window).width();
+                        }
+                        
+                        var item_width = (container_width-item_columns)/item_columns;
+                        //alert(container_width+","+item_width);
+                        $('#tileGallery').rtg({
+                            imageWidth: item_width,
+                            spacing: 1,
+                            categories: false,
+                            lightbox: false,
+                            center: false,
+                            initialHeight: 500
+                        });
+                        $('.tile-container').css('height', $(window).height()+'px');
+                        if($(window).width()<=767){
+                            $('.tile-container').css('height', 'auto');
+                        }
+                    });
+                    
                 });
             </script>
 <?php

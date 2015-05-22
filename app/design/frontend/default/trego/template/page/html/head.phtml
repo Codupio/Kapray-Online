@@ -19,16 +19,10 @@
 <?php echo $this->getChildHtml() ?>
 <?php echo $this->helper('core/js')->getTranslatorScript() ?>
 <?php echo $this->getIncludes() ?>
+<!-- TREGO 2.3.2 (11/26/2014) -->
 <script type="text/javascript">
-//    jQuery(document).ready(function(){
-//        jQuery("select").each(function(){
-//            if(!jQuery(this).hasClass("layered-navigation-multiselect")){ /* not
-//            to affect the layered navigation */
-//              jQuery(this).selectbox();
-//            }
-//        });
-//    });
-    window.addEventListener("load",function() {
+    var addEvent =  window.attachEvent||window.addEventListener;
+    addEvent("load", function(){
         // Set a timeout...
         setTimeout(function(){
             // Hide the address bar!
@@ -36,3 +30,10 @@
         }, 0);
     });
 </script>
+<!--[if lt IE 10]>
+<script type="text/javascript">    
+    jQuery(function($){
+        $.Placeholder.init();
+    });
+</script>
+<![endif]-->

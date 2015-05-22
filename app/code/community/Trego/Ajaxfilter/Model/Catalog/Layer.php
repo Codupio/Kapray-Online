@@ -37,7 +37,9 @@ class Trego_Ajaxfilter_Model_Catalog_Layer extends Mage_Catalog_Model_Layer
 	* @return currency
 	*/
 	public function getMaxPriceFilter(){
-		return round($_GET['max']/$this->currentRate);
+		if(isset($_GET['max']))
+			return round($_GET['max']/$this->currentRate);
+		return 0;
 	}
 	
 	
@@ -47,7 +49,9 @@ class Trego_Ajaxfilter_Model_Catalog_Layer extends Mage_Catalog_Model_Layer
 	* @return currency
 	*/
 	public function getMinPriceFilter(){
-		return round($_GET['min']/$this->currentRate);
+		if(isset($_GET['min']))
+			return round($_GET['min']/$this->currentRate);
+		return 0;
 	}
     
 	

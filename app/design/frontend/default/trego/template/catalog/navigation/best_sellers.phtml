@@ -35,9 +35,20 @@ $enable = Mage::getStoreConfig('filterproducts/bestseller/active',$code);
     ?>
         <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
             <?php // Product Image ?>
-            <div class="product-image-area" hover_img="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(100) ?>" base_img="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(100) ?>" >
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(100)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+            <div class="product-image-area">
+                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" product_id="<?php echo $_product->getId()?>">
+                    <?php
+                        if(Mage::getStoreConfig("trego_settings/category/alternative_image", $code)){
+                    ?>
+                        <img class="defaultImage" src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(Mage::getStoreConfig("trego_settings/category/ratio_width",$code),Mage::getStoreConfig("trego_settings/category/ratio_height",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                        <img class="hoverImage" src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(Mage::getStoreConfig("trego_settings/category/ratio_width",$code),Mage::getStoreConfig("trego_settings/category/ratio_height",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>"/>
+                    <?php
+                        } else {
+                    ?>
+                        <img src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(Mage::getStoreConfig("trego_settings/category/ratio_width",$code),Mage::getStoreConfig("trego_settings/category/ratio_height",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                    <?php
+                        }
+                    ?>
                 </a>
                 <?php 
                     $top_position = 10;

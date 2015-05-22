@@ -5,19 +5,19 @@
     $enable = Mage::getStoreConfig('filterproducts/new/active',$code);
     if($enable == 1){
 ?>
-    <li><a href="javascript:void(0)" class="a_latest"><span><?php echo $this->__('Latest'); ?></span><span class="expander">&nbsp;</span></a></li>
+    <li><a href="javascript:void(0)" class="a_latest"><span><?php echo Mage::getStoreConfig('filterproducts/new/menu',$code); ?></span><span class="expander">&nbsp;</span></a></li>
 <?php
     }
     $enable = Mage::getStoreConfig('filterproducts/featured/active',$code);
     if($enable == 1){
 ?>
-    <li><a href="javascript:void(0)" class="a_featured"><span><?php echo $this->__('Featured'); ?></span><span class="expander">&nbsp;</span></a></li>
+    <li><a href="javascript:void(0)" class="a_featured"><span><?php echo Mage::getStoreConfig('filterproducts/featured/menu',$code); ?></span><span class="expander">&nbsp;</span></a></li>
 <?php
     }
     $enable = Mage::getStoreConfig('filterproducts/special/active',$code);
     if($enable == 1){
 ?>
-    <li><a href="javascript:void(0)" class="a_special"><span><?php echo $this->__('Specials'); ?></span><span class="expander">&nbsp;</span></a></li>
+    <li><a href="javascript:void(0)" class="a_special"><span><?php echo Mage::getStoreConfig('filterproducts/special/menu',$code); ?></span><span class="expander">&nbsp;</span></a></li>
 <?php
     }
 ?>

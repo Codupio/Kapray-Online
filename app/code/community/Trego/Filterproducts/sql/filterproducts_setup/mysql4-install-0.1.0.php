@@ -28,6 +28,10 @@ $setup->addAttribute('catalog_product', 'featured', array(
         'is_configurable'   => false
 ));
 
-$setup->addAttributeToSet('catalog_product', 'Default', 'General', 'featured');
 
+try {
+     $setup->addAttributeToSet('catalog_product', 'Default', 'General', 'featured');
+} catch (Exception $e) {
+    
+}
 $installer->endSetup();

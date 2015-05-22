@@ -127,6 +127,14 @@
         shippingRegionUpdater.update();
         jQuery(s_region_id).hide();
         jQuery(s_country_id).change(function(){
+            var s_region_id = document.getElementById('shipping:region_id');
+            var country_val = '';
+            jQuery(this).children('option').each(function(){
+                if(jQuery(this).attr('selected')){
+                    country_val = jQuery(this).attr('value');
+                }
+            });
+            shippingRegionUpdater.countryEl.value = country_val;
             if (!shippingRegionUpdater.regions[shippingRegionUpdater.countryEl.value]) {
                 jQuery('#sbHolder_'+jQuery(s_region_id).attr("sb")).hide();
             }else{

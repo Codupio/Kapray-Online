@@ -19,10 +19,10 @@ $code  = $store->getCode();
     $_googleplus_sortorder = Mage::getStoreConfig('socialicons/options/googleplus_sortorder', $code);
     $_links = array(
         array('visible'=>$_facebook_visible,'url'=>$_facebook_url,'class'=>'facebook-icon','title'=>'Facebook','sortorder'=>$_facebook_sortorder),
-        array('visible'=>$_linkedin_visible,'url'=>$_linkedin_url,'class'=>'pinterest-icon','title'=>'Pinterest','sortorder'=>$_linkedin_sortorder),
         array('visible'=>$_twitter_visible,'url'=>$_twitter_url,'class'=>'twitter-icon','title'=>'Twitter','sortorder'=>$_twitter_sortorder),
-        array('visible'=>$_flickr_visible,'url'=>$_flickr_url,'class'=>'instagram-icon','title'=>'Instagram','sortorder'=>$_flickr_sortorder),
-        array('visible'=>$_googleplus_visible,'url'=>$_googleplus_url,'class'=>'vimeo-icon','title'=>'Googleplus','sortorder'=>$_googleplus_sortorder)
+        array('visible'=>$_linkedin_visible,'url'=>$_linkedin_url,'class'=>'linkedin-icon','title'=>'Linkedin','sortorder'=>$_linkedin_sortorder),
+        array('visible'=>$_flickr_visible,'url'=>$_flickr_url,'class'=>'flickr-icon','title'=>'Flickr','sortorder'=>$_flickr_sortorder),
+        array('visible'=>$_googleplus_visible,'url'=>$_googleplus_url,'class'=>'googleplus-icon','title'=>'Googleplus','sortorder'=>$_googleplus_sortorder)
     );
     if (!function_exists('sortorder')) {
     function sortorder($item1,$item2)

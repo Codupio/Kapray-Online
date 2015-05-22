@@ -37,6 +37,7 @@
         <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post">
         <fieldset>
             <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
+            <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
             <ul class="form-list">
                 <li>
                     <div class="input-box">

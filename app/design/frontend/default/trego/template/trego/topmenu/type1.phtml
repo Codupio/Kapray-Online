@@ -18,6 +18,7 @@ if ($this->getUrl('') == $this->getUrl('*/*/*', array('_current'=>true, '_use_re
     <a id="mobnav"><?php echo $this->__('Menu'); ?></a>
 <?php
 function hasMenuChildren($_cat){
+    $storeId    = Mage::app()->getStore()->getId();
     $return_val = false;
     if($_cat->hasChildren()){
         $_children = $_cat->getChildren();
@@ -37,12 +38,14 @@ function cmpCatPosition($a, $b) {
     return ($a->position > $b->position) ? 1 : -1;
 }
 
-function showChildrenCategories($_category, $level, $level_limit, $cus_current_page, $ControllerName){    
-    $storeId = Mage::app()->getStore()->getId();    
+function showChildrenCategories($_category, $level, $level_limit, $custom_html='', $cus_current_page, $ControllerName){
+    $store = Mage::app()->getStore();
+    $code  = $store->getCode();
+    $storeId = Mage::app()->getStore()->getId();
     $html = '';
     if($level == 0){
         $html .= '<ul id="nav" class="default">';
-    } else {         
+    } else {
         $html .= '<ul class="level'.$level.'">';
     }
     $_children = $_category->getChildren();
@@ -59,6 +62,7 @@ function showChildrenCategories($_category, $level, $level_limit, $cus_current_p
 
     foreach ($categoryChildren as $_child){
         if($_child->getIncludeInMenu()){
+            
             if($cus_current_page == 'other'){
                 if($ControllerName=='product' || $ControllerName=='category'){                   
                     if(Mage::registry('current_category')->getName() == $_child->getName()){
@@ -72,12 +76,16 @@ function showChildrenCategories($_category, $level, $level_limit, $cus_current_p
             }else{
                $addCustomClass=""; 
             }
+            
             $html .= '<li class="level'.$level.$addCustomClass;
             if( hasMenuChildren($_child) && $level < $level_limit ){
                 $html .= ' parent';
             }
             $html .='">';
-            $html .= '<a href ="'.$_child->getUrl().'"><span>';
+            $url = $_child->getUrl();
+			if(Mage::app()->getFrontController()->getRequest()->isSecure())
+				$url = str_replace('http://', 'https://', $url ); 
+			$html .= '<a href ="'.$url.'"><span>';
             $html .= $_child->getName();
             if( hasMenuChildren($_child) && $level < $level_limit ){
                 $html .= ' <em>+</em>';
@@ -90,11 +98,23 @@ function showChildrenCategories($_category, $level, $level_limit, $cus_current_p
             $html .= '</li>';
         }
     }
+    if($level == 0){
+        $html .= $custom_html;
+    }
     $html .= '</ul>';
     return $html;
 }
-
-echo showChildrenCategories($_cat, 0, $show_levels, $cus_current_page, $this->getRequest()->getControllerName());
+$custom_html = '';
+if (Mage::getStoreConfig("slidermenu/menu/show_custom_menu", $code) == 1) {
+    $custom_html = $this->getLayout()->createBlock('cms/block')->setBlockId(Mage::getStoreConfig("slidermenu/menu/custom_block_id", $code))->toHtml();
+    if(substr($custom_html, 0,4)=="<ul>"){
+        $custom_html = substr($custom_html, 4);
+    }
+    if(substr($custom_html, -5)=="</ul>"){
+        $custom_html = substr($custom_html, 0, -5);
+    }
+}
+echo showChildrenCategories($_cat, 0, $show_levels, $custom_html, $cus_current_page, $this->getRequest()->getControllerName());
 ?>
 </div><?php //content ?>
 <script type="text/javascript">

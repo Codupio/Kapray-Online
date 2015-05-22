@@ -27,6 +27,7 @@
                 <cms_blockid3>home_slider_3</cms_blockid3>
                 <cms_blockid4>home_slider_4</cms_blockid4>
                 <cms_blockid5>home_slider_5</cms_blockid5>
+                <cms_blockid6>home_slider_6</cms_blockid6>
                 <option_auto>1</option_auto>
                 <option_pause>4000</option_pause>
                 <option_autostart>1</option_autostart>
@@ -40,6 +41,8 @@
                 <menu_type>0</menu_type>
                 <show_level>3</show_level>
                 <show_column>4</show_column>
+                <show_custom_menu>1</show_custom_menu>
+                <custom_block_id>custom_menu</custom_block_id>
             </menu>
         </slidermenu>
     </default>

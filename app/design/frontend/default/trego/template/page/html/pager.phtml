@@ -38,10 +38,10 @@
     <div class="pages">
         <ol>
         <?php if (!$this->isFirstPage()): ?>
-            <li class="previous_li">
+            <li>
                 <a class="previous<?php if(!$this->getAnchorTextForPrevious()): ?> i-previous<?php endif;?>" href="<?php echo $this->getPreviousPageUrl() ?>" title="<?php echo $this->__('Previous') ?>">
                     <?php if(!$this->getAnchorTextForPrevious()): ?>
-                       previous
+                        <img src="<?php echo $this->getSkinUrl('images/pager_arrow_left.png') ?>" alt="<?php echo $this->__('Previous') ?>" class="v-middle" />
                     <?php else: ?>
                         <?php echo $this->getAnchorTextForPrevious() ?>
                     <?php endif;?>
@@ -75,10 +75,10 @@
         <?php endif;?>
 
         <?php if (!$this->isLastPage()): ?>
-            <li class="next_li">
+            <li>
                 <a class="next<?php if(!$this->getAnchorTextForNext()): ?> i-next<?php endif; ?>" href="<?php echo $this->getNextPageUrl() ?>" title="<?php echo $this->__('Next') ?>">
                     <?php if(!$this->getAnchorTextForNext()): ?>
-                       next
+                        <img src="<?php echo $this->getSkinUrl('images/pager_arrow_right.png') ?>" alt="<?php echo $this->__('Next') ?>" class="v-middle" />
                     <?php else: ?>
                         <?php echo $this->getAnchorTextForNext() ?>
                     <?php endif;?>

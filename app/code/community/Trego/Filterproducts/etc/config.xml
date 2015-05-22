@@ -125,16 +125,19 @@
 			<featured>
 				<active>1</active>
 				<max_product>12</max_product>
+                <menu>Featured</menu>
 				<title>Fetured Products</title>
 			</featured>
 			<new>
 				<active>1</active>
 				<max_product>12</max_product>
+                <menu>Latest</menu>
 				<title>Latest Products</title>
 			</new>
 			<special>
 				<active>1</active>
 				<max_product>12</max_product>
+                <menu>Specials</menu>
 				<title>Special Products</title>
 			</special>
 		</filterproducts>

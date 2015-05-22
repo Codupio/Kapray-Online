@@ -7,9 +7,10 @@ class Trego_Filterproducts_Block_Bestsellers_Home_List extends Trego_Filterprodu
         parent::__construct();
         $storeId    = Mage::app()->getStore()->getId();
         $storeCode  = Mage::app()->getStore()->getCode();
+        $prefix = Mage::getConfig()->getTablePrefix();
         $select = Mage::getSingleton('core/resource')->getConnection('core_read')
             ->select()
-            ->from('sales_flat_order_item', array('product_id', 'count' => 'SUM(`qty_ordered`)'))
+            ->from($prefix.'sales_flat_order_item', array('product_id', 'count' => 'SUM(`qty_ordered`)'))
             ->group('product_id');
  
         $collection = Mage::getModel('catalog/product')

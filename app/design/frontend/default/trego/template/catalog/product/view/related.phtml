@@ -12,7 +12,7 @@
         <?php
             if(Mage::getStoreConfig("trego_settings/product_view/related_checkbox", $code)){
         ?>
-        <p class="block-subtitle"><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><?php echo $this->__('select all') ?></a></p>
+        <p class="block-subtitle"><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this);return false;"><?php echo $this->__('select all') ?></a></p>
         <?php
             }
         ?>
@@ -26,8 +26,19 @@
                             <div class="related-checkbox-alias" chkid="related-checkbox<?php echo $_product->getId() ?>"></div>
                         <?php endif; ?>
                     <?php endif; ?>
-                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" product_id="<?php echo $_product->getId()?>">
+					<?php
+						if(Mage::getStoreConfig("trego_settings/category/alternative_image", $code)){
+					?>
+						<img class="defaultImage" src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(Mage::getStoreConfig("trego_settings/category/ratio_width",$code),Mage::getStoreConfig("trego_settings/category/ratio_height",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+						<img class="hoverImage" src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(Mage::getStoreConfig("trego_settings/category/ratio_width",$code),Mage::getStoreConfig("trego_settings/category/ratio_height",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>"/>
+					<?php
+						} else {
+					?>
+						<img src="<?php if(Mage::getStoreConfig("trego_settings/category/aspect_ratio",$code)):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(350);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(Mage::getStoreConfig("trego_settings/category/ratio_width",$code),Mage::getStoreConfig("trego_settings/category/ratio_height",$code)); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+					<?php
+						}
+					?>
                     </a>
                     <?php 
                         $top_position = 10;
@@ -91,12 +102,14 @@
         if (relatedProductsCheckFlag == false) {
             $$('.related-checkbox').each(function(elem){
                 elem.checked = true;
+                jQuery(elem).parent().children('.related-checkbox-alias').addClass('checked');
             });
             relatedProductsCheckFlag = true;
             txt.innerHTML="<?php echo $this->__('unselect all') ?>";
         } else {
             $$('.related-checkbox').each(function(elem){
                 elem.checked = false;
+                jQuery(elem).parent().children('.related-checkbox-alias').removeClass('checked');
             });
             relatedProductsCheckFlag = false;
             txt.innerHTML="<?php echo $this->__('select all') ?>";
@@ -108,7 +121,11 @@
         var checkboxes = $$('.related-checkbox');
         var values = [];
         for(var i=0;i<checkboxes.length;i++){
-            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+            if(checkboxes[i].checked){
+                if(values.indexOf(checkboxes[i].value) < 0 ){
+                    values.push(checkboxes[i].value);
+                }
+            } 
         }
         if($('related-products-field')){
             $('related-products-field').value = values.join(',');

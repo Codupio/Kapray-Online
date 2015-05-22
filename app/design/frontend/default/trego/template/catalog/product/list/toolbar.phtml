@@ -1,10 +1,8 @@
 <?php
-/**
- * Product list toolbar
- *
- * @see Mage_Catalog_Block_Product_List_Toolbar
- */
+    $store = Mage::app()->getStore();
+    $code  = $store->getCode();
 ?>
+
 <?php if($this->getCollection()->getSize()): ?>
 <div class="toolbar">
     <div class="pager">
@@ -53,8 +51,10 @@
             <?php endif; ?>
         </div>
 <?php
+if(Mage::app()->getRequest()->getModuleName() == 'catalog' ){
     $block = new Trego_Ajaxfilter_Block_Catalog_Layer_Filter_Price();
     echo $block->getHtml();
+}
 ?>
         <?php if( $this->isEnabledViewSwitcher() ): ?>
         <div class="view-mode">
@@ -70,8 +70,13 @@
             <?php endif; ?>
         </div>
         <?php endif; ?>
-
+<?php 
+if(Mage::app()->getRequest()->getModuleName() != Trego_Blog_Helper_Data::DEFAULT_ROOT && !Mage::getStoreConfig("trego_settings/category/hide_compare", $code)){
+?>
         <button class="button btn-compare" onclick="setLocation('<?php echo $_helper->getListUrl(); ?>')"><span><span><?php echo $this->__('Compare'); ?></span></span></button>
+<?php
+}
+?>
         </div>
     </div>
 

@@ -8,14 +8,12 @@ class Trego_Filterproducts_Block_Newproduct_Home_List extends Trego_Filterproduc
         parent::__construct();
         $storeId    = Mage::app()->getStore()->getId();
         $storeCode  = Mage::app()->getStore()->getCode();
-        $todayDate  = Mage::app()->getLocale()->date()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
 
-        $products = Mage::getModel('catalog/product')->getCollection()
-            ->addAttributeToSelect('*')
-            ->addAttributeToSort("entity_id","DESC")
-			->addAttributeToSelect(array('name', 'price', 'small_image'))
-   			->setVisibility(Mage::getSingleton('catalog/product_visibility')->getVisibleInSiteIds())
-        	->setOrder($this->get_order(), $this->get_order_dir());
+		$products = Mage::getResourceModel('catalog/product_collection');
+        $products = $this->_addProductAttributesAndPrices($products)
+            ->addAttributeToSort('created_at', 'desc')
+            ->setStoreId($storeId)
+            ->addStoreFilter($storeId);
         if(Mage::getStoreConfig('filterproducts/new/max_product', $storeCode))
         {
             $products->setPageSize(Mage::getStoreConfig('filterproducts/new/max_product'));

@@ -37,7 +37,7 @@
                             <show_in_store>1</show_in_store>
                         </max_product>
                         <title translate="label" module="filterproducts">
-                            <label>Title</label>
+                            <label>Popup Title</label>
                             <frontend_type>text</frontend_type>
 							<sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
@@ -72,6 +72,14 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </max_product>
+                        <menu translate="label" module="filterproducts">
+                            <label>Menu Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </menu>
                         <title translate="label" module="filterproducts">
                             <label>Title</label>
                             <frontend_type>text</frontend_type>
@@ -108,6 +116,14 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </max_product>
+                        <menu translate="label" module="filterproducts">
+                            <label>Menu Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </menu>
                         <title translate="label" module="filterproducts">
                             <label>Title</label>
                             <frontend_type>text</frontend_type>
@@ -144,6 +160,14 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </max_product>
+                        <menu translate="label" module="filterproducts">
+                            <label>Menu Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </menu>
                         <title translate="label" module="filterproducts">
                             <label>Title</label>
                             <frontend_type>text</frontend_type>

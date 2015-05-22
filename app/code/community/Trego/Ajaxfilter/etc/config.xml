@@ -111,6 +111,7 @@
         <toolbar>1</toolbar>
 		<overlay_color>#000000</overlay_color>
 		<overlay_opacity>0.5</overlay_opacity>
+		<loading_image></loading_image>
 		<loading_text>Loading... Please wait...</loading_text>
 		<loading_text_color>#ffffff</loading_text_color>
 	  </ajax_conf>

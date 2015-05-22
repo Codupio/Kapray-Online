@@ -194,6 +194,14 @@
         billingRegionUpdater.update();
         jQuery(region_id).hide();
         jQuery(country_id).change(function(){
+            var region_id = document.getElementById('billing:region_id');
+            var country_val = '';
+            jQuery(this).children('option').each(function(){
+                if(jQuery(this).attr('selected')){
+                    country_val = jQuery(this).attr('value');
+                }
+            });
+            billingRegionUpdater.countryEl.value = country_val;
             if (!billingRegionUpdater.regions[billingRegionUpdater.countryEl.value]) {
                 jQuery('#sbHolder_'+jQuery(region_id).attr("sb")).hide();
             }else{
