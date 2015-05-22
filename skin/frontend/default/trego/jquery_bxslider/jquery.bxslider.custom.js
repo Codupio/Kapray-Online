@@ -33,7 +33,7 @@
 		useCSS: true,
 		preloadImages: 'visible',
 		responsive: true,
-                contentEffect: false,
+        contentEffect: false,
 
 		// TOUCH
 		touchEnabled: true,
@@ -78,60 +78,60 @@
 		
 		// CALLBACKS
 		onSliderLoad: function() {
-                    jQuery('.bxslider').children('li').each(function(){
-                            if(jQuery(this).is(':visible') == true){
-                                var color_theme = jQuery(this).children('img').attr('data-color');                                    
-                                jQuery('.nav-container ul').removeClass('lightcolor');
-                                jQuery('.copyrights').removeClass('light-copyrights');
-                                jQuery('.input-text').removeClass('light-input-text');
-                                jQuery('.facebook-icon').removeClass('facebook-light-icon');
-                                jQuery('.twitter-icon').removeClass('twitter-light-icon');
-                                jQuery('.pinterest-icon').removeClass('pinterest-light-icon');
-                                jQuery('.instagram-icon').removeClass('instagram-light-icon');
-                                jQuery('.vimeo-icon').removeClass('vimeo-light-icon');
-                                jQuery('.shipping-container').removeClass('light-shipping-container');
-                                if(color_theme == 'light'){
-                                    jQuery('.nav-container ul').addClass('lightcolor');
-                                    jQuery('.copyrights').addClass('light-copyrights');
-                                    jQuery('.input-text').addClass('light-input-text');
-                                    jQuery('.facebook-icon').addClass('facebook-light-icon');
-                                    jQuery('.twitter-icon').addClass('twitter-light-icon');
-                                    jQuery('.pinterest-icon').addClass('pinterest-light-icon');
-                                    jQuery('.instagram-icon').addClass('instagram-light-icon');
-                                    jQuery('.vimeo-icon').addClass('vimeo-light-icon');
-                                    jQuery('.shipping-container').addClass('light-shipping-container');
-                                }
-                            }
-                    });
-                },
+			jQuery('.bxslider').children('li').each(function(){
+				if(jQuery(this).is(':visible') == true){
+					var color_theme = jQuery(this).children('img').attr('data-color');                                    
+					jQuery('.nav-container ul').removeClass('lightcolor');
+					jQuery('.copyrights').removeClass('light-copyrights');
+					jQuery('.input-text').removeClass('light-input-text');
+					jQuery('.facebook-icon').removeClass('facebook-light-icon');
+					jQuery('.twitter-icon').removeClass('twitter-light-icon');
+					jQuery('.pinterest-icon').removeClass('pinterest-light-icon');
+					jQuery('.instagram-icon').removeClass('instagram-light-icon');
+					jQuery('.vimeo-icon').removeClass('vimeo-light-icon');
+					jQuery('.shipping-container').removeClass('light-shipping-container');
+					if(color_theme == 'light'){
+						jQuery('.nav-container ul').addClass('lightcolor');
+						jQuery('.copyrights').addClass('light-copyrights');
+						jQuery('.input-text').addClass('light-input-text');
+						jQuery('.facebook-icon').addClass('facebook-light-icon');
+						jQuery('.twitter-icon').addClass('twitter-light-icon');
+						jQuery('.pinterest-icon').addClass('pinterest-light-icon');
+						jQuery('.instagram-icon').addClass('instagram-light-icon');
+						jQuery('.vimeo-icon').addClass('vimeo-light-icon');
+						jQuery('.shipping-container').addClass('light-shipping-container');
+					}
+				}
+			});
+		},
 		onSlideBefore: function() {},
 		onSlideAfter: function() {
-                    jQuery('.bxslider').children('li').each(function(){
-                        if(jQuery(this).is(':visible') == true){
-                            var color_theme = jQuery(this).children('img').attr('data-color');                                    
-                            jQuery('.nav-container ul').removeClass('lightcolor');
-                            jQuery('.copyrights').removeClass('light-copyrights');
-                            jQuery('.input-text').removeClass('light-input-text');
-                            jQuery('.facebook-icon').removeClass('facebook-light-icon');
-                            jQuery('.twitter-icon').removeClass('twitter-light-icon');
-                            jQuery('.pinterest-icon').removeClass('pinterest-light-icon');
-                            jQuery('.instagram-icon').removeClass('instagram-light-icon');
-                            jQuery('.vimeo-icon').removeClass('vimeo-light-icon');
-                            jQuery('.shipping-container').removeClass('light-shipping-container');
-                            if(color_theme == 'light'){
-                                jQuery('.nav-container ul').addClass('lightcolor');
-                                jQuery('.copyrights').addClass('light-copyrights');
-                                jQuery('.input-text').addClass('light-input-text');
-                                jQuery('.facebook-icon').addClass('facebook-light-icon');
-                                jQuery('.twitter-icon').addClass('twitter-light-icon');
-                                jQuery('.pinterest-icon').addClass('pinterest-light-icon');
-                                jQuery('.instagram-icon').addClass('instagram-light-icon');
-                                jQuery('.vimeo-icon').addClass('vimeo-light-icon');
-                                jQuery('.shipping-container').addClass('light-shipping-container');
-                            }
-                        }
-                    });
-            },
+			jQuery('.bxslider').children('li').each(function(){
+				if(jQuery(this).is(':visible') == true){
+					var color_theme = jQuery(this).children('img').attr('data-color');                                    
+					jQuery('.nav-container ul').removeClass('lightcolor');
+					jQuery('.copyrights').removeClass('light-copyrights');
+					jQuery('.input-text').removeClass('light-input-text');
+					jQuery('.facebook-icon').removeClass('facebook-light-icon');
+					jQuery('.twitter-icon').removeClass('twitter-light-icon');
+					jQuery('.pinterest-icon').removeClass('pinterest-light-icon');
+					jQuery('.instagram-icon').removeClass('instagram-light-icon');
+					jQuery('.vimeo-icon').removeClass('vimeo-light-icon');
+					jQuery('.shipping-container').removeClass('light-shipping-container');
+					if(color_theme == 'light'){
+						jQuery('.nav-container ul').addClass('lightcolor');
+						jQuery('.copyrights').addClass('light-copyrights');
+						jQuery('.input-text').addClass('light-input-text');
+						jQuery('.facebook-icon').addClass('facebook-light-icon');
+						jQuery('.twitter-icon').addClass('twitter-light-icon');
+						jQuery('.pinterest-icon').addClass('pinterest-light-icon');
+						jQuery('.instagram-icon').addClass('instagram-light-icon');
+						jQuery('.vimeo-icon').addClass('vimeo-light-icon');
+						jQuery('.shipping-container').addClass('light-shipping-container');
+					}
+				}
+			});
+		},
 		onSlideNext: function() {},
 		onSlidePrev: function() {}
 	}
@@ -1454,8 +1454,12 @@
             if(windowWidth > 1024)
                 left = (windowWidth-$('.bx-controls-direction').width()-219) / 2 + 219;
             if(windowWidth <= 1024){
-                top = (windowHeight-$('.bx-controls-direction').height()-190) / 2 + 190;
-                top = (top<190)?190:top;
+                if($(window).width()/$(window).height()<1.6){
+                    top = (windowHeight-$('.bx-controls-direction').height()-190) / 2 + 190;
+                    top = (top<190)?190:top;
+                } else {
+                    top = 30;
+                }
             }
             if(windowWidth < 768){
                 top = (windowHeight-$('.bx-controls-direction').height()-138) / 2 + 138;

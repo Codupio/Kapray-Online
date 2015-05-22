@@ -27,9 +27,14 @@ jQuery(document).ready(function(){
             jQuery(this).css('top', jQuery(this).parent().offset().top-scrolltop);
         });
     });
-	
+    if(jQuery(window).width()<=1024 && jQuery(window).width()>=768 && jQuery('#nav').height()>40)
+        jQuery('.header .header-bground').addClass('menu-expanded');
+    jQuery(window).resize(function(){
+        if(jQuery(window).width()<=1024 && jQuery(window).width()>=768 && jQuery('#nav').height()>40)
+            jQuery('.header .header-bground').addClass('menu-expanded');
+    })
 /*
-	if(jQuery(window).height()>550)
+    if(jQuery(window).height()>550)
         jQuery('.box-scroll').css('height',(jQuery(window).height()-400)+"px");
     else
         jQuery('.box-scroll').css('height',"150px");
@@ -47,11 +52,11 @@ jQuery(document).ready(function(){
         }
     });
 */
-    jQuery(document.body).on("mouseover",".quickviewpro-button", function(){
+	jQuery(document.body).on("mouseover",".quickviewpro-button", function(){
 
             jQuery(this).prev().prev().children(".hover-image").css("display","block");
     });
     jQuery(document.body).on("mouseout",".quickviewpro-button", function(){
             jQuery(this).prev().prev().children(".hover-image").removeAttr("style");
-    });       
+    });
 });

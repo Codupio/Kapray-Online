@@ -25,7 +25,6 @@
 select { margin-bottom:1px; }
 input.radio { width:13px; height:13px; }
 input.checkbox { width:13px; height:13px; }
-button.button { height:21px; }
 button.button span { position:relative; }
 button.btn-checkout { height:40px; }
 #opc-review .sp-methods .input-box { float:left; }
