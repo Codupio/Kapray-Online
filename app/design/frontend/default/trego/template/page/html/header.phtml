@@ -80,7 +80,7 @@
             <div class="header-sidebar">
                 <a href="<?php echo $this->getUrl('',  array('_secure' =>  Mage::app()->getFrontController()->getRequest()->isSecure())) ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
                 
-                <div class="box-scroll">
+                <div class="inner-box-scroll box-scroll ">
                     <?php echo $this->getChildHtml('topSearch'); ?>
                     <div class="clear"></div>
                     <?php echo $this->getChildHtml('topMenu'); ?>                    
@@ -311,5 +311,3 @@
 
             });
         </script>
-    </div>
-</div>

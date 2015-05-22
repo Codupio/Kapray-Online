@@ -152,29 +152,25 @@
                         }
                         if(Mage::getStoreConfig("trego_settings/category_grid/hover_button", $code)){    
                     ?>
-                    <ul class="cart-button-set">
-                        <li class="first">
-                            <?php  if ( !($_product->getData('has_options') || $_product->isGrouped()) ) :  ?>
-                                <a href="<?php if(Mage::getStoreConfig("ajaxcart/addtocart/enablecategory", $code)):?>javascript:setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>')<?php else: ?><?php echo $this->getAddToCartUrl($_product) ?><?php endif; ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><?php echo $this->__('Add to Cart') ?></a>
-                            <?php else : ?>
-                                <a href="<?php if(Mage::getStoreConfig("ajaxcart/addtocart/enablecategory", $code)):?>javascript:showOptions('<?php echo $_product->getId()?>')<?php else: ?><?php echo $this->getAddToCartUrl($_product) ?><?php endif; ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><?php echo $this->__('Add to Cart') ?></a>
-                                <a href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Options</a>
-                            <?php endif;?>
-                        </li>
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                        <li><a href="<?php if(Mage::getStoreConfig("ajaxcart/addtolinks/enablecategory", $code)):?>javascript:ajaxWishlist('<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>','<?php echo $_product->getId()?>');<?php else: ?><?php echo $this->helper('wishlist')->getAddUrl($_product) ?><?php endif; ?>" class="addtowishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                        <?php endif; ?>
-                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
-                        <li class="last"><a href="<?php if(Mage::getStoreConfig("ajaxcart/addtolinks/enablecategory", $code)):?>javascript:ajaxCompare('<?php echo $_compareUrl ?>','<?php echo $_product->getId()?>');<?php else: ?><?php echo $_compareUrl ?><?php endif; ?>" class="addtocompare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
-                        <?php endif; ?>
-                    </ul>
+                    <div class="hover-image">
+<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="hover-img-link"></a>
+                    
+	                    <ul class="cart-button-set">
+							<?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php if(Mage::getStoreConfig("ajaxcart/addtolinks/enablecategory", $code)):?>javascript:ajaxWishlist('<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>','<?php echo $_product->getId()?>');<?php else: ?><?php echo $this->helper('wishlist')->getAddUrl($_product) ?><?php endif; ?>" class="addtowishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                            <?php endif; ?>
+                    	</ul>
+                    
+                    </div>
                     <?php
                         }
                     ?>
                     <div class="clearer"></div>
                 </div>
-                <?php echo $this->getPriceHtml($_product, true) ?>
-                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                <div class="cus-product-price">
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+                </div>
                 <?php
                 if(!Mage::getStoreConfig("trego_settings/category_grid/hover_button", $code)){
                 ?>

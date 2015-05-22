@@ -1,5 +1,4 @@
 #nav em { font-style: normal; }
-#nav.menutype2 li em { display: none; }
 .tablet-overlay { 
     background: url(../images/top-menu-bg-overlay.png); 
     position: fixed; 
@@ -11,8 +10,10 @@
     border-top: 1px solid #DDDDDD;
     display: none;
 }
+.inner-box-scroll #nav .parent span em{ display:none;}
 @media only screen and (min-width: 1025px)  {
     .tablet-overlay { display: none !important; }
+	.inner-box-scroll .inner-nav #nav.default li.cus-active ul.level1{ display:block !important;}
     #nav.default {
         padding: 0 0 0 30px;
         display: block;
@@ -25,7 +26,6 @@
         padding-right: 30px;
     }
     #nav.default > li > a {
-        border-bottom: 1px solid #dddddd;
         transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
         -moz-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
         -webkit-transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
@@ -34,6 +34,10 @@
     #nav.default li > a:hover, #nav.default li.over > a {
         color: #fff !important;
         background: #585858;
+    }
+	.inner-box-scroll #nav.default li > a:hover, .inner-box-scroll #nav.default li.over > a {
+        color: #000 !important;
+        background:none;
     }
     #nav.default li .shown-sub ul.shown-sub, #nav.default li .shown-sub li div.shown-sub {
         left: 170px;
@@ -46,6 +50,15 @@
     #nav.default ul.level1 {
         position: fixed;
     }
+	
+	.inner-box-scroll #nav.default ul.level1 {
+        position: relative; top:0px !important; left: 0px; display:none !important;
+	}
+	
+	.inner-box-scroll #nav.default ul li > a { color:#1e1e1e !important; background:none; line-height:25px;}
+	
+	.inner-box-scroll #nav.default ul li { padding:0 0 0 10px;}
+	
     #nav ul span, #nav ul li.last li span {
         padding: 0 15px;
     }
@@ -110,7 +123,7 @@
         background: none;
     }
     #nav.menutype2 li.level1 {
-        background: url(../images/top-menu-li.png) 10px 8px no-repeat;
+        background: url(../images/top-menu-li.png) 10px 11px no-repeat;
     }
     #nav.menutype2 li.level1 > a > span {
         padding-left: 22px;
@@ -142,7 +155,7 @@
         margin: 0;
         display: inline-block;
     }
-    #nav.menutype2 > li.level0:hover > span.plus, #nav.menutype2 span.plus:hover, #nav.menutype2 li.expanded span.plus:hover {
+    #nav.menutype2 span.plus:hover, #nav.menutype2 li.expanded span.plus:hover {
         background-color: #fff;
         background-color: rgba(255,255,255,.3);
     }
@@ -158,7 +171,7 @@
     #nav.menutype2 li.expanded span.plus {
         background: url(../images/expand-icon2.png) 10px -40px no-repeat;
     }
-    #nav.menutype2 li.level2 { padding-bottom: 2px;}
+    #nav.menutype2 li.level2 { padding-bottom: 2px; }
     #nav.menutype2 li.level2 a {
         border-right: 0 !important;
         margin-right: 5px;
@@ -166,8 +179,6 @@
         border-top: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
         padding: 7px 0 10px 0;
-        display: block; 
-        min-height: 55px; 
     }
     #nav.menutype2 li.level2 a span {
         font-family: 'PTSans_Caption';

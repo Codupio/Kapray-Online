@@ -143,7 +143,7 @@ jQuery(function($) {
         var mypath = 'quickview/index/view';
         var baseUrl = Trego.Quickview.BASE_URL + mypath;
 
-        var _quickviewHref = "<a id=\"trego_quickview_handler\" href=\"#\" style=\"position:absolute;top:0;left:-999em; background-color: #535451; color: #fff; padding: 5px;\">"+Trego.Quickview.QV_TITLE+"</a>";
+        var _quickviewHref = "<a id=\"trego_quickview_handler\" href=\"#\" style=\"top:0; background-color: #535451; color: #fff; padding: 5px;\">"+Trego.Quickview.QV_TITLE+"</a>";
         $(document.body).append(_quickviewHref);
         var quickviewHandlerImg = $('#trego_quickview_handler img');
         $.each(listprod, function(index, value) {
@@ -160,9 +160,8 @@ jQuery(function($) {
                 if ($(window).width() <= 768 ) return;
                 if (this.className == 'i_new') return;
                 $('#trego_quickview_handler').appendTo($(this));
-                $('#trego_quickview_handler img').show();
                 $('#trego_quickview_handler').css('top','50%');
-                $('#trego_quickview_handler').css('left','50%');
+
                 var margin_left = "-14px";
                 var margin_top = "-14px";
                 if($('#trego_quickview_handler').find("img").height()>0)
@@ -174,7 +173,7 @@ jQuery(function($) {
                 $('#trego_quickview_handler').attr('href',reloadurl).fadeIn();
                 return false;
             }).mouseleave(function() {
-                $('#trego_quickview_handler').hide();
+                
                 return false;
             });
         });
