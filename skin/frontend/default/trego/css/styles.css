@@ -286,7 +286,7 @@
 }
 
 * { margin:0; padding:0; }
-html { background: #f1f1f1; min-height: 100%; }
+html { background: #fff; min-height: 100%; }
 body          { font:12px/1.55 Verdana, Arial, Helvetica, sans-serif; color:#595959; text-align:center; min-height: 100%; }
 
 img           { border:0; vertical-align:top; max-width: 100%; }
@@ -1178,6 +1178,14 @@ _________________________________________________________________
 .cus-category-social-icons div.social-icons{ bottom:45px !important;}
 
 .cus-category-social-icons div.copyrights{ bottom:12px !important;}
+
+.quickview-index-view .more-views{ display:none;}
+
+.page-empty.quickview-index-view{ padding:10px;}
+
+.quickview-index-view .product-view .product-img-box { width:45%;}
+
+.quickview-index-view .product-view .product-shop { width:53%;}
 
 
 /* Mini Blocks */
@@ -3595,7 +3603,7 @@ a.vimeo-light-icon {
 
 .products-grid .item:hover .hover-image{  background-color: rgba(255, 255, 255, 0.5);}
 
-.products-grid .item:hover .hover-image ul.cart-button-set {right: 50%; opacity: 1;   margin-right: -54px;}
+.products-grid .item:hover .hover-image ul.cart-button-set {right: 50%; opacity: 1;}
 
 .hover-img-link{  bottom: 0;  left: 0;  position: absolute;  right: 0;  top: 0;}
 
@@ -3605,14 +3613,15 @@ ul.cart-button-set{
     margin: 0;
     padding: 0;
     position:absolute;
-    right: 0%;
+    right: 50%;
  	top: 47.5%;
     z-index: 10;
 	width:45px;
 	opacity: 0;
-	-webkit-transition: all 0.5s ease-out 0s;
-  -moz-transition: all 0.5s ease-out 0s;
-  transition: all 0.5s ease-out 0s;
+	margin-right: -54px;
+	-webkit-transition: all 0.1s ease-out 0s;
+  -moz-transition: all 0.1s ease-out 0s;
+  transition: all 0.1s ease-out 0s;
 }
 
 ul.cart-button-set li{
@@ -4802,9 +4811,7 @@ text-shadow:1px 1px #1a1a1a;padding:0 22px;text-transform:uppercase;cursor:point
 .va_choice input{margin-top:-5px;}
 .bs_tit{font-size:14px;font-weight:bold;margin-bottom:5px;}
 
-#trego_quickview_handler {z-index:999; background: url(../images/zoom-icon.png) no-repeat; width:39px; height:39px; -webkit-transition: all 0.5s ease-out 0s;  -moz-transition: all 0.5s ease-out 0s;  transition: all 0.5s ease-out 0s; opacity:0; left:0%; position:absolute;}
-
-.products-grid .item:hover #trego_quickview_handler {left: 50%; opacity: 1; margin-left:-40px !important;}
+#trego_quickview_handler {z-index:999; background: url(../images/zoom-icon.png) no-repeat; width:39px; height:39px; margin-left:-40px !important;}
 
 
 /*===*/
