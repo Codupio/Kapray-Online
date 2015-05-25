@@ -57,7 +57,7 @@ AmZoomer.prototype = ({
             if(560 > windowWidth){
                 var width = jQuery("#amasty_zoom").width();
                 var height = jQuery("#amasty_zoom").height();
-                jQuery("#amasty_zoom").parent().append('<div id="amasty_zoom_fix" style="position: absolute;top:0; background-color: transparent; z-index:9999; width: ' + width + 'px; height: ' + height + 'px;"></div>')
+                //jQuery("#amasty_zoom").parent().append('<div id="amasty_zoom_fix" style="position: absolute;top:0; background-color: transparent; z-index:9999; width: ' + width + 'px; height: ' + height + 'px;"></div>')
                 jQuery("#amasty_zoom_fix").click(function() {
                     jQuery( "#amasty_zoom" ).trigger( "click" );
                 });
