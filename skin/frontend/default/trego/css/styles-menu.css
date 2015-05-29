@@ -10,7 +10,8 @@
     border-top: 1px solid #DDDDDD;
     display: none;
 }
-.inner-box-scroll #nav .parent span em{ display:none;}
+#nav .parent span em{ display:none;}
+.home-page-scroller .level1{ display:none;}
 @media only screen and (min-width: 1025px)  {
     .tablet-overlay { display: none !important; }
 	.inner-box-scroll .inner-nav #nav.default li.cus-active ul.level1{ display:block !important;}
