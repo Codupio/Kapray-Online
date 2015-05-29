@@ -137,8 +137,8 @@
 }
 
 .block-related .bx-wrapper .bx-prev {
-    right: 35px;
-    left: auto;
+    right: auto;
+    left: 0;
     margin: 0;
     background: url(../images/pager_arrow_large.png) 10px 4px no-repeat;
 }
@@ -152,17 +152,13 @@
 
 .block-related .bx-wrapper .bx-controls-direction a {
     position: absolute;
-    top: -67px;
+    top: 39%;
     outline: 0;
-    width: 33px;
+    width: 23px;
     height: 25px;
     text-indent: -9999px;
     z-index: 9;
 }
-.block-related .bx-wrapper .bx-controls-direction a:hover {
-    background-color: #ccc;
-}
-
 .box-up-sell .bx-wrapper {
     position: relative;
     margin: 0;
