@@ -97,9 +97,9 @@ if ($init_price_maximum == 0 || $init_price_maximum >= $price_maximum)
 </div>
 <div class="price-slider-values">
     <span class="filter-currency"><?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?></span>
-    <input type="text" name="price_minimum" id="price_minimum" value="<?php echo $price_minimum; ?>"/>
+    <input type="text" name="price_minimum" id="price_minimum" value="<?php echo $price_minimum; ?>" readonly="readonly"/>
     <span class="filter-currency">&nbsp;-&nbsp;<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?></span>
-    <input type="text" name="price_maximum" id="price_maximum" value="<?php echo $price_maximum; ?>"/> <button class="button" id="price-filter-button"><span><span><img src="<?php echo $this->getSkinUrl("ajaxlist/images/search.png");?>" alt="<?php echo $this->__("Search"); ?>" title="<?php echo $this->__("Search"); ?>"/></span></span></button>
+    <input type="text" name="price_maximum" id="price_maximum" value="<?php echo $price_maximum; ?>" readonly="readonly"/> <button class="button" id="price-filter-button"><span><span><img src="<?php echo $this->getSkinUrl("ajaxlist/images/search.png");?>" alt="<?php echo $this->__("Search"); ?>" title="<?php echo $this->__("Search"); ?>"/></span></span></button>
     <input value="<?php echo $url_info["scheme"] . "://" . $url_info["host"] . $url_info["path"] . (($url_vars) ? ("?" . $url_vars ) : ""); ?>" type="hidden" id="price_slider_url" name="price_slider_url"/>
     <input value="<?php echo $init_price_minimum; ?>" type="hidden" id="init_price_minimum" name="init_price_minimum"/>
     <input value="<?php echo $init_price_maximum; ?>" type="hidden" id="init_price_maximum" name="init_price_maximum"/>

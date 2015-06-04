@@ -61,7 +61,7 @@ if ($_count_selected > 0 && $_count_selected <= $_show_count_after) {
     <div class="multiselect-dropdown-container">
         <div class="multiselect-buttons-container">
             <a href="#" data-list="#category-filters" class="check-all"><span class="button-icon">&nbsp;</span><?php echo $this->__("Check all"); ?></a>
-            <a href="#" data-list="#category-filters" class="uncheck-all"><span class="button-icon">&nbsp;</span><?php echo $this->__("Uncheck all"); ?></a>
+            <a href="#" data-list="#category-filters" class="uncheck-all"><?php echo $this->__("Clear"); ?></a>
         </div>
         <ol id="category-filters" data-attribute="cat" data-label-id="#filter-label-cat"  class="layered-links-multiselect <?php echo ( $this->getFilterIsActive()) ? " active-layer" : " unactive-layer"; ?>">
             <?php echo Mage::helper("ajaxlist/category")->renderCategoryMenuItemHtml(Mage::getSingleton('catalog/layer')->getCurrentCategory(), $_items, 0, false, false); ?>

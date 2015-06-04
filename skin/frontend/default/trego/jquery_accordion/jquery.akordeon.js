@@ -9,7 +9,7 @@
                 var expandedAll = settings.expandedAll;
                 var speed = settings.expandSpeed;
                 var expandText = settings.expandText;
-                var collapseText = settings.collapseText;
+                var collapseText = settings.collapseText;			
                 var isToggle = settings.toggle;
 
                 var akordeon = $(this);
