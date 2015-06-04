@@ -150,12 +150,14 @@ class Payment_Cybersource_Model_Cybersource extends Mage_Payment_Model_Method_Ab
         $fields['ship_to_address_line2'] = $shippingAddress->getStreet(2);
         $fields['ship_to_address_postal_code'] = $shippingAddress->getPostcode();
         $fields['ship_to_address_state'] = $shippingAddress->getRegionCode();
+        $fields['ship_to_forename'] = $shippingAddress->getFirstname();
+        $fields['ship_to_surname'] = $shippingAddress->getLastname();
                 
         if(Mage::getSingleton('customer/session')->isLoggedIn()) {
             $customerData = Mage::getSingleton('customer/session')->getCustomer();
-            $fields['customer_id'] = $customerData->getId();
+            $fields['consumer_id'] = $customerData->getId();
         }else{
-            $fields['customer_id'] = "guest";
+            $fields['consumer_id'] = "guest";
         }
  
         $fields['customer_ip_address'] = Mage::helper('core/http')->getRemoteAddr();
