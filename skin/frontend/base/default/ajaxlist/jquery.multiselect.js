@@ -126,7 +126,7 @@ function getParameterByName(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function applyAjaxFilters() {
+function applyAjaxFilters() {    
     _v = new Array();
     /* all layered links, including categories */
     jQuery("ol.layered-links-multiselect").each(function() {
@@ -159,9 +159,9 @@ function applyAjaxFilters() {
     }
     _p = _v.join("&");
     if (window._search_query)
-        _p = _p + "&" + window._search_query;
-
-    window.location.hash = _p;
+        _p = _p + "&" + window._search_query;    
+    window.location='?'+_p;
+    //window.location.hash = _p;
 }
 
 function extraAjaxLayeredNavigationScripts() {/* this function will reload the price filters when priceslider is disabled, (beta) */
