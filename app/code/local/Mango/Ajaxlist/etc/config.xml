@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to license that is bundled with
+ * this package in the file LICENSE.txt.
+ *
+ * @category   Mango
+ * @package    Mango_Ajaxlist
+ * @copyright  Copyright (c) 2010 Mango Extensions
+ */
+-->
+<config>
+    <modules>
+        <Mango_Ajaxlist>
+            <version>1.8.2</version>
+        </Mango_Ajaxlist>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <ajaxlist>
+                    <file>ajaxlist.xml</file>
+                </ajaxlist>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <mango_ajaxlist_observer>
+                        <type>singleton</type>
+                        <class>ajaxlist/observer</class>
+                        <method>addLayoutHandler</method>
+                    </mango_ajaxlist_observer>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <mango_ajaxlist before="Mage_Catalog_Product_CompareController">
+                            Mango_Ajaxlist_Product_Compare
+                        </mango_ajaxlist>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+    <global>
+        <!--blocks>
+            <catalog>
+                <rewrite>
+                    <layer_filter_price>Mango_Ajaxlist_Block_Layer_Filter_Price</layer_filter_price>
+                </rewrite>
+            </catalog>
+        </blocks-->
+        <models>
+            <ajaxlist>
+                <class>Mango_Ajaxlist_Model</class>
+            </ajaxlist>
+            <catalog>
+                <rewrite>
+                    <layer_filter_price>Mango_Ajaxlist_Model_Layer_Filter_Price</layer_filter_price>
+                </rewrite>
+            </catalog>
+            <catalog_resource_eav_mysql4>
+                <rewrite>
+                    <layer_filter_price>Mango_Ajaxlist_Model_Resource_Eav_Mysql4_Layer_Filter_Price</layer_filter_price>
+                </rewrite>
+            </catalog_resource_eav_mysql4>
+        </models>
+        <helpers>
+            <ajaxlist>
+                <class>Mango_Ajaxlist_Helper</class>
+            </ajaxlist>
+        </helpers>
+        <events>
+            <http_response_send_before>
+                <observers>
+                    <mango_ajaxlist_observer>
+                        <type>singleton</type>
+                        <class>ajaxlist/observer</class>
+                        <method>alterResponse</method>
+                    </mango_ajaxlist_observer>
+                </observers>
+            </http_response_send_before>
+        </events>
+    </global>
+    <default>
+        <ajaxlist>
+            <ajaxlist>
+                <step>1</step>
+            </ajaxlist>
+        </ajaxlist>
+    </default>
+    
+</config>	

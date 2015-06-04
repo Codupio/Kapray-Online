@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to license that is bundled with
+ * this package in the file LICENSE.txt.
+ *
+ * @category   Mango
+ * @package    Mango_Ajaxlist
+ * @copyright  Copyright (c) 2010 Mango Extensions
+ */
+-->
+<config>
+    <modules>
+        <Mango_Multiselect>
+            <version>1.7.1</version>
+        </Mango_Multiselect>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <multiselect>
+                    <file>ajaxlist_multiselect.xml</file>
+                </multiselect>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <multiselect>
+                <class>Mango_Multiselect_Model</class>
+            </multiselect>
+        </models>
+        <helpers>
+            <multiselect>
+                <class>Mango_Multiselect_Helper</class>
+            </multiselect>
+        </helpers>
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <mango_multiselect_observer>
+                        <type>singleton</type>
+                        <class>multiselect/observer</class>
+                        <method>addLayoutHandler</method>
+                    </mango_multiselect_observer>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+    </global>
+    <default>
+        <ajaxlist>
+            <multiselect>
+                <select_label>Select options</select_label>
+                <show_count>4</show_count>
+                <selected_count_label># selected</selected_count_label>
+            </multiselect>
+        </ajaxlist>
+    </default>
+    
+</config>	
