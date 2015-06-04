@@ -115,21 +115,21 @@ class Mango_Layered_Model_Layer_Filter_Attribute extends Mage_Catalog_Model_Laye
             
             if (Mage::helper('core/string')->strlen($option['value'])) {
                 // Check filter type
-                if ($this->_getIsFilterableAttribute($attribute) == self::OPTIONS_ONLY_WITH_RESULTS || $_option_used ) {
+               // if ($this->_getIsFilterableAttribute($attribute) == self::OPTIONS_ONLY_WITH_RESULTS || $_option_used ) {
                     // if (!empty($optionsCount[$option['value']])) {
-                    $data[] = array(
+                 /*   $data[] = array(
                         'label' => $option['label'],
                         'value' => $option['value'],
                         'count' => $optionsCount[$option['value']],
-                    );
+                    );*/
                     // }
-                } else {
+               // } else {
                     $data[] = array(
                         'label' => $option['label'],
                         'value' => $option['value'],
                         'count' => isset($optionsCount[$option['value']]) ? $optionsCount[$option['value']] : 0,
                     );
-                }
+               // }
             }
         }
         $tags = array(

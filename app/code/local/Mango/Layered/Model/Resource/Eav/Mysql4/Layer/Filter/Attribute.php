@@ -54,7 +54,7 @@ public function setConditions( $attribute, $conditions, $tablename , $tablealias
 
     $_new_conditions = array(  "tablealias"=>$tablealias , "tablename"=>$tablename , 'conditions' => $conditions     );
     
-    $_all_conditions[$attribute] = $_new_conditions; 
+    $_all_conditions[$attribute->getAttributeCode()] = $_new_conditions; 
     
     Mage::register("filter_conditions" , $_all_conditions);
     
@@ -118,12 +118,6 @@ public function getConditions(){
         // clone select from collection with filters
         $select = clone $filter->getLayer()->getProductCollection()->getSelect();
 
-
-
-        
-
-
-
         // reset columns, order and limitation conditions
         $select->reset(Zend_Db_Select::COLUMNS);
         $select->reset(Zend_Db_Select::ORDER);
@@ -139,19 +133,12 @@ public function getConditions(){
             $connection->quoteInto("{$tableAlias}.store_id = ?", $filter->getStoreId()),
         );
 
-
-
         $_from = $select->getPart(Zend_Db_Select::FROM);
-        
         $_all_conditions = $this->getConditions();
         foreach( $_from as $index=>$condition){
-
-
             if($index==($attribute->getAttributeCode() . "_idx")) unset($_from[$attribute->getAttributeCode() . "_idx"]);
         }
-
         $select->setPart(Zend_Db_Select::FROM, $_from);
-
         $select
             ->join(
                 array($tableAlias => $this->getMainTable()),
@@ -160,7 +147,6 @@ public function getConditions(){
             ->group("{$tableAlias}.value");
 
          $select->distinct();
-
         return $connection->fetchPairs($select);
     }
 }

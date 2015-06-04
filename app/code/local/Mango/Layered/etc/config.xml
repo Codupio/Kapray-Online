@@ -10,11 +10,14 @@
 <config>
     <modules>
         <Mango_Layered>
-            <version>0.1.0</version>
+            <version>1.8.2</version>
         </Mango_Layered>
     </modules>
     <global>
         <models>
+            <layered>
+                <class>Mango_Layered_Model</class>
+            </layered>
             <catalog>
                 <rewrite>
                     <layer_filter_item>Mango_Layered_Model_Layer_Filter_Item</layer_filter_item>
@@ -26,8 +29,7 @@
                     <layer_filter_attribute>Mango_Layered_Model_Layer_Filter_Attribute</layer_filter_attribute>
                 </rewrite>
             </catalog>
-
-             <catalog_resource_eav_mysql4>
+            <catalog_resource_eav_mysql4>
                 <rewrite>
                     <layer_filter_attribute>Mango_Layered_Model_Resource_Eav_Mysql4_Layer_Filter_Attribute</layer_filter_attribute>
                 </rewrite>
@@ -35,48 +37,78 @@
                     <product_collection>Mango_Layered_Model_Resource_Eav_Mysql4_Product_Collection</product_collection>
                 </rewrite-->
             </catalog_resource_eav_mysql4>
-
-
             <catalogsearch>
                 <rewrite>
                     <layer_filter_attribute>Mango_Layered_Model_Catalogsearch_Layer_Filter_Attribute</layer_filter_attribute>
                 </rewrite>
             </catalogsearch>
-
-
         </models>
-
-        
-
-
-        <!--routers>
+        <!--blocks>
             <catalog>
                 <rewrite>
-                    <product_compare>
-                        <to>Mango_Redirect/product_compare</to>
-                    </product_compare>
+                    <layer_state>Mango_Layered_Block_Layer_State</layer_state>
+                    <layer_filter_category>Mango_Layered_Block_Layer_Filter_Category</layer_filter_category>
+                    <layer_filter_attribute>Mango_Layered_Block_Layer_Filter_Attribute</layer_filter_attribute>
                 </rewrite>
             </catalog>
-        </routers>
-        <blocks>
-            <checkout>
-                <rewrite>
-                    <cart>Mango_Redirect_Block_Cart</cart>
-                </rewrite>
-            </checkout>
         </blocks-->
-
-    </global>
-     <!--frontend>
-        <routers>
-            <redirect>
-                <use>standard</use>
-                <args>
-                    <module>Mango_Redirect</module>
-                    <frontName>redirect</frontName>
-                </args>
-            </redirect>
-        </routers>
         
-    </frontend-->
+        <events>
+            <controller_action_layout_render_before>
+                <observers>
+                    <layered_top_block_before>
+                        <type>singleton</type>
+                        <class>layered/observer</class>
+                        <method>topLayeredNavigationBefore</method>
+                    </layered_top_block_before>
+                </observers>
+            </controller_action_layout_render_before>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <layered_top_block_prepare>
+                        <type>singleton</type>
+                        <class>layered/observer</class>
+                        <method>topLayeredNavigationPrepare</method>
+                    </layered_top_block_prepare>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <layered_top_block_insert>
+                        <type>singleton</type>
+                        <class>layered/observer</class>
+                        <method>topLayeredNavigationInsert</method>
+                    </layered_top_block_insert>
+                </observers>
+            </core_block_abstract_to_html_after>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <layered_templates>
+                        <type>singleton</type>
+                        <class>layered/observer</class>
+                        <method>templatesForLayeredNavigationFilter</method>
+                    </layered_templates>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+        </events>
+    </global>
+    <frontend>
+        <events>
+        <!-- disable configurable swatches observer -->
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <configurableswatches>
+                        <type>disabled</type>
+                    </configurableswatches>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+        </events>
+    </frontend>
+    <default>
+        <ajaxlist>
+            <frontend>
+                <list_max_height>150</list_max_height>
+            </frontend>
+        </ajaxlist>
+    </default>
 </config>	

@@ -1,0 +1,131 @@
+#narrow-by-list .multiselect-label-container{
+    padding:5px 25px 5px 10px;
+    border:solid 1px #ccc;
+    background:#ffffff;
+    display:block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+}
+
+#narrow-by-list .multiselect-label-container span.multiselect-label-arrow{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 24px;
+  height: 100%;
+  display: block;
+  background-color: transparent;
+  background-image: url("images/chevron-down.png");
+  background-size: 12px 8px;
+  background-position: center center;
+  background-repeat:no-repeat;
+}
+
+#narrow-by-list .multiselect-label-container.has-expanded-multiselect span.multiselect-label-arrow{
+    background-image: url("images/chevron-up.png");
+}
+
+#narrow-by-list .multiselect-dropdown{
+    position:relative;
+}
+
+#narrow-by-list .multiselect-dropdown-container{
+    padding:10px;
+    border:solid 1px #ccc;
+    background:#ffffff;
+    z-index:100;
+    min-width: 120%;
+    max-width: 140%;
+    position:absolute;
+    top:100%;
+    left:0px;
+    display:none;
+    margin-top:-1px;
+}
+
+#narrow-by-list .multiselect-dropdown-container.expanded-multiselect{
+    display:block;
+}
+
+
+.multiselect-dropdown-container a,
+.multiselect-dropdown-container a:hover{
+    text-decoration: none;
+}
+
+.multiselect-buttons-container{
+    padding:5px 0px;
+    text-align:center;
+}
+
+.multiselect-buttons-container a{
+    white-space: nowrap;
+    padding:2px 2px;
+}
+
+.multiselect-buttons-container a span.button-icon{
+    display:inline-block;
+    width:12px;
+    height:12px;
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right:2px;
+    vertical-align: middle;
+}
+
+.multiselect-buttons-container a.check-all span.button-icon{
+    background-image: url('images/ok-2.png');
+}
+
+.multiselect-buttons-container a.uncheck-all span.button-icon{
+    background-image: url('images/remove-2.png');
+}
+
+
+ol.layered-links-multiselect{
+    overflow-y: auto;
+}
+
+
+.multiselect-dropdown-container .layered-links-multiselect > li > a,
+.multiselect-dropdown-container .layered-links-multiselect > li.no-items{
+    display:block;
+    padding:3px 5px 3px 30px;
+    background: url('images/unchecked.png') 8px center no-repeat;
+    background-size: 12px 12px;
+}
+
+.multiselect-dropdown-container .layered-links-multiselect > li.active-filter-option > a{
+    background-image: url('images/check.png');
+}
+
+.multiselect-dropdown-container .layered-links-multiselect > li > a:hover{
+    background-color:#efefef;
+}
+
+
+
+
+.multiselect-dropdown-filter-button-container{
+    padding:5px 0px;
+    text-align: center;
+}
+
+.multiselect-dropdown-filter-button-container button.button{
+    width:100%;
+}
+
+
+#horizontal-layered-navigation-container div.horizontal-filter .filter-content{
+    width:180%;
+}
+
+#horizontal-layered-navigation-container .multiselect-label-container{
+    text-align: center;
+}

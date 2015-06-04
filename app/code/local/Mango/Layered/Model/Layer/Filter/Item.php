@@ -48,43 +48,22 @@ class Mango_Layered_Model_Layer_Filter_Item extends Mage_Catalog_Model_Layer_Fil
         } elseif ((int) $_url_param > 0) {
             $_filter[] = $_url_param;
         }
-        //echo $_filter;
-        // print_r($_filter);
-        // print_r($_filter);
-        //print_r($_filter);
         $_value = $this->getValue();
-        // echo "***" . $this->getValue() . "--";
-        // if(is_array($_value)) $_value = join(",", $_value); /*for price*/
-        // print_r($_value);
-        //echo $_value;
-        // print_r($_filter);
-        //   echo " --- $value ---";
+        if(is_array($_value)) $_value = join(",", $_value); /*for the price filter..*/
         if (in_array($_value, $_filter)) {
             array_splice($_filter, array_search($_value, $_filter), 1);
-            //   echo "--";
-            //  print_r($_filter);
-            //$this->setIsActive(true);
         } else {
-            $_filter[] = $this->getValue();
-            //     echo "***";
-            //     print_r($_filter);
-            //$this->setIsActive(true);
+            $_filter[] = $_value;
         }
         $_filter = array_unique($_filter);
-        //   print_r($_filter);
         $_filter = join(",", $_filter);
-        //echo $_filter;
-        $_fragment[$this->getFilter()->getRequestVar()] = $_filter;
+        $_query[$this->getFilter()->getRequestVar()] = $_filter;
         if ($this->getFilter()->getRequestVar() == "price" && count($_filter)) {
-            $_fragment[$this->getFilter()->getRequestVar()] = null;
+            $_query[$this->getFilter()->getRequestVar()] = null;
         }
-        $_fragment["ajax"] = null;
-        $_fragment[Mage::getBlockSingleton('page/html_pager')->getPageVarName()] = null;
-        $_query = $_fragment;
-        //print_r($_fragment);
-        /*foreach ($_query as $_index => $value)
-            if ($_index != "q")
-                $_query[$_index] = null;*/
+        $_query["ajax"] = null;
+        $_query[Mage::getBlockSingleton('page/html_pager')->getPageVarName()] = null;
+        //$_query = $_fragment;
         if (Mage::app()->getRequest()->getControllerName() == "result" && Mage::app()->getRequest()->getModuleName() == "catalogsearch") {
             return Mage::getUrl('*/*', array('_current' => true, '_use_rewrite' => true, '_query' => $_query));
         } else {
@@ -146,13 +125,9 @@ class Mango_Layered_Model_Layer_Filter_Item extends Mage_Catalog_Model_Layer_Fil
         }
         $_value = $this->getValue();
         if (in_array($_value, $_filter)) {
-            //array_splice($_filter, array_search($_value, $_filter), 1);
             return true;
         } else {
             return false;
-            //$_filter[] = $this->getValue();
-            //$this->setIsActive(true);
         }
-        //return $this->_is_active;
     }
 }
