@@ -61,8 +61,10 @@ li.filter.filter-opened.filter-price {
     background: #efefef;
 }
 #slider_outer {
-    margin-top: 10px;
+    margin-top: 15px;
 }
+
+#slider_outer .s3 + div{ padding:0px !important;}
 
 .filter.filter-price .filter-slider {
     background: #ddd;
@@ -72,15 +74,20 @@ li.filter.filter-opened.filter-price {
     background: none;
 }
 .price-slider-values {
-    padding-top: 25px;
+    padding-top: 35px;
     text-align: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	position:absolute;
 }
 .price-slider-values input[type=text] {
-    border: solid 1px #d8d8d8;
-    color: #211e1f;
-    padding-left: 2px;
-    padding-right: 2px;
+    border: none;
+    color: #020202;
+	font-size:11px;
     width: 35px;
+	font-family: 'PTSans_Caption_Bold';
+	text-align: center;
 }
 .price-slider-values .filter-currency {
     color: #aaaaaa;
@@ -191,13 +198,14 @@ ol.layered-links{
 
 ol.layered-links li,
 ol#category-filters li{
-    padding: 0px;
+	padding: 0px;
+	list-style: none;
 }
 
 ol.layered-links li > a, ol#category-filters li > a {
     background: url("images/checkbox-off.png") left center no-repeat;
     display: block;
-    padding: 0px 0px 0px 20px;
+    padding: 3px 5px 3px 30px;
 }
 
 ol.layered-links li.no-items {
@@ -217,7 +225,7 @@ ol#category-filters li a .item-count{
 ol#category-filters li.no-items > a {
     background: #efefef url("images/checkbox-off.png") 0px center no-repeat;
     color: #aaa;
-    padding: 0px 0px 0px 20px;
+    padding: 3px 5px 3px 30px;
 }
 
 ol#category-filters ul {

@@ -1,5 +1,5 @@
 
-.quickview-index-view .akordeon { display:none;}
+.quickview-index-view .akordeon, .multiselect-label-container { display:none;}
 
 .akordeon
 {
@@ -7,7 +7,6 @@
     font-family: 'Raleway_Medium';
     font-size: 15px;
     margin-top: 20px;
-    border-bottom: 1px solid #d9d9d9;
 }
 .akordeon-item
 {
@@ -17,6 +16,9 @@
 {
     height: 40px;
 }
+
+.product-collateral .akordeon-item-head{ border-top:1px solid #d9d9d9;}
+
 .akordeon-item .akordeon-item-body
 {
     border-bottom: none;
@@ -28,7 +30,7 @@
     height: 25px;
     padding: 0;
     margin: 8px 0 0;
-    float: right;
+    float: left;
     cursor: pointer;
     text-align: center;
     overflow: hidden;
@@ -100,22 +102,6 @@
 }
 .block.block-layered-nav .akordeon-item-content div.price {
     padding: 0 10px;
-}
-.akordeon-border-bottom
-{
-    border-bottom: solid 1px #d9d9d9;
-}
-.akordeon-border-top
-{
-    border-top: solid 1px black;
-}
-.akordeon-item.expanded .akordeon-item-body.akordeon-border-bottom
-{
-    border-bottom: solid 1px #d9d9d9 !important;
-}
-.akordeon-item.akordeon-item-first .akordeon-item-head
-{
-
 }
 
 .akordeon-item.akordeon-item-last.collapsed .akordeon-item-head

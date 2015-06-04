@@ -60,7 +60,7 @@ if ($_count_selected > 0 && $_count_selected <= $_show_count_after) {
     <div class="multiselect-dropdown-container">
         <div class="multiselect-buttons-container">
             <a href="#" data-list="#multiselect-<?php echo $_filter_id; ?>" class="check-all"><span class="button-icon">&nbsp;</span><?php echo $this->__("Check all"); ?></a>
-            <a href="#" data-list="#multiselect-<?php echo $_filter_id; ?>" class="uncheck-all"><span class="button-icon">&nbsp;</span><?php echo $this->__("Uncheck all"); ?></a>
+            <a href="#" data-list="#multiselect-<?php echo $_filter_id; ?>" class="uncheck-all"><?php echo $this->__("Clear"); ?></a>
         </div>
 
         <ol id="multiselect-<?php echo $_filter_id; ?>" data-attribute="<?php echo $_filter_id; ?>" data-label-id="#filter-label-<?php echo $_filter_id; ?>" class="layered-links-multiselect<?php echo ( $this->getFilterIsActive()) ? " active-layer" : " unactive-layer"; ?>"  style="max-height:<?php echo (int)Mage::getStoreConfig('ajaxlist/frontend/list_max_height');?>px;">
