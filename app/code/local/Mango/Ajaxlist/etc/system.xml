@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Mage
+ * @package    Mango_Ajaxlist
+ * @copyright  Copyright (c) 2004-2007 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <tabs>
+        <ajaxlist translate="label" module="ajaxlist">
+            <label>Ajax Layered Navigation</label>
+            <sort_order>200</sort_order>
+        </ajaxlist>
+    </tabs>
+    <sections>
+        <ajaxlist translate="label" module="ajaxlist">
+             <class>separator-top</class>
+            <label>Settings</label>
+            <tab>ajaxlist</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <ajaxlist translate="label">
+                    <label>Price Slider Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        
+                        <jquery translate="label">
+                            <label>Include jQuery</label>
+                            <comment><![CDATA[If your theme or another extension already includes jQuery, set to <b>No</b>.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </jquery>
+                        
+                        <after_reload_js translate="label">
+                            <label>Include afterReload.js</label>
+                            <comment><![CDATA[ Use this function to execute scripts after the ajax load, for example: to recreate the expand/collapse function used in the rwd theme layered navigation because it needs to be recreated each time the ajax is loaded.<br/>You need to edit the file <b>skin/frontend/base/default/ajaxlist/afterReload.js</b> or create your own copy on your theme skin folder: <b>skin/frontend/PACKAGE/THEME/ajaxlist/afterReload.js</b> (Recommended) ]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </after_reload_js>
+                        
+                        <!--ajaxmode translate="label">
+                            <label>Ajax mode</label>
+                            <comment>Append hash or not  </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ajaxmode-->
+                        
+                        <use_priceslider translate="label">
+                            <label>Use Price Slider</label>
+                            <comment>Display price slider instead of price ranges</comment>
+                            <frontend_type>select</frontend_type>
+                             <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_priceslider>
+                        
+                        <step translate="label">
+                            <label>Round Step Value</label>
+                            <comment>Round prices to a multiple of X.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </step>
+                        
+                        <use_category_price_step translate="label">
+                            <label>Use category price slider step</label>
+                            <comment>Use category attribute: Display Settings > Layered Navigation Price Step</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_category_price_step>
+                        
+
+                    </fields>
+                </ajaxlist>
+                
+            </groups>
+        </ajaxlist>
+
+    </sections>
+</config>
