@@ -126,7 +126,7 @@ function getParameterByName(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function applyAjaxFilters() {    
+function applyAjaxFilters() {
     _v = new Array();
     /* all layered links, including categories */
     jQuery("ol.layered-links-multiselect").each(function() {
@@ -136,6 +136,7 @@ function applyAjaxFilters() {
             _values.push(_value);
         });
         _param_value = _values.join();
+        alert(_param_value);
         if (_param_value !== "") {
             _param = jQuery(this).data("attribute") + "=" + _param_value;
             _v.push(_param);
@@ -159,8 +160,9 @@ function applyAjaxFilters() {
     }
     _p = _v.join("&");
     if (window._search_query)
-        _p = _p + "&" + window._search_query;    
-    window.location='?'+_p;
+        _p = _p + "&" + window._search_query;
+
+    window.location="?"+ _p;
     //window.location.hash = _p;
 }
 
@@ -204,6 +206,7 @@ function extraAjaxLayeredNavigationScripts() {/* this function will reload the p
 
 function querySt(Key) {
     var url = window.location.hash.slice(1);
+    //var url = window.location.slice(1);
     KeysValues = url.split(/[\?&]+/);
     for (i = 0; i < KeysValues.length; i++) {
         KeyValue = KeysValues[i].split("=");

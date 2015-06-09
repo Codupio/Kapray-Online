@@ -53,7 +53,8 @@ jQuery(document).ready(function() {
                 new_url = ajaxListURL(jQuery("#price_slider_url").val()) + "&price=" + jQuery("#slider-range-price").slider("values", 0) + "-" + jQuery("#slider-range-price").slider("values", 1);
                 setReload_nav(true);
                 setReload_compare(false);
-                window.location.hash = hashUrl(new_url);
+                //window.location.hash = hashUrl(new_url);
+                window.location = "?"+hashUrl(new_url);
             }
         });
         jQuery("input#price_maximum").val(jQuery("#slider-range-price").slider("values", 1));
@@ -64,13 +65,15 @@ jQuery(document).ready(function() {
     jQuery(document).on('change', ".pager select, .toolbar select", function() {
         setReload_nav(false);
         setReload_compare(false);
-        window.location.hash = hashUrl(jQuery(this).val());
+        //window.location.hash = hashUrl(jQuery(this).val());
+        window.location = "?"+hashUrl(jQuery(this).val());
         return false;
     });
     jQuery(document).on('click', ".pager a, .toolbar a", function() {
         setReload_nav(false);
         setReload_compare(false);
-        window.location.hash = hashUrl(jQuery(this).attr("href"));
+        //window.location.hash = hashUrl(jQuery(this).attr("href"));
+        window.location = "?"+hashUrl(jQuery(this).attr("href"));
         return false;
     });
     /*jQuery(document).on('click', "#cart-sidebar a.btn-remove", function() {
@@ -85,7 +88,8 @@ jQuery(document).ready(function() {
         e.preventDefault();
         setReload_nav(true);
         setReload_compare(true);
-        window.location.hash = hashUrl(jQuery(this).attr("href"));
+        //window.location.hash = hashUrl(jQuery(this).attr("href"));
+        window.location = "?"+hashUrl(jQuery(this).attr("href"));
         return false;
     });
 
@@ -95,7 +99,8 @@ jQuery(document).ready(function() {
         request_price_min = Math.floor(jQuery("#price_minimum").val() / step_val) * step_val;
         request_price_max = Math.ceil(jQuery("#price_maximum").val() / step_val) * step_val;
         new_url = ajaxListURL(jQuery("#price_slider_url").val()) + "&price=" + request_price_min + "-" + request_price_max;
-        window.location.hash = hashUrl(new_url);
+        //window.location.hash = hashUrl(new_url);
+        window.location = "?"+hashUrl(new_url);
     });
 
     jQuery(document).on('click', ".category-products .add-to-links a.link-compare", function() {
