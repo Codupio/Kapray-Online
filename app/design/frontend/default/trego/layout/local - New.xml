@@ -85,7 +85,7 @@ Default layout, loads most of the pages
             <block type="core/text_list" name="category-right" as="category-right" translate="label">
                 <label>Right Column</label>
                 <block type="catalog/navigation" name="catalog.category" before="-" template="catalog/navigation/category_nav.phtml"/>
-                <block type="catalog/layer_view" name="catalog.leftnav" after="catalog.category" template="catalog/layer/view.phtml"/>
+                <block type="catalog/layer_view" name="catalog.leftnav" after="catalog.category" template="ajaxlayerednavigation/catalog/layer/view.phtml"/>
                 <block type="filterproducts/bestsellers_home_list" name="bestseller" template="catalog/navigation/best_sellers.phtml"/>
                 <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
                     <block type="cms/block" name="cms_images_block">
@@ -110,8 +110,8 @@ Default layout, loads most of the pages
         <reference name="product_list">
             <block type="core/text_list" name="category-right" as="category-right" translate="label">
                 <label>Right Column</label>
-                <block type="catalog/navigation" name="catalog.category" before="-" template="catalog/navigation/category_nav.phtml"/>
-                <block type="catalog/layer_view" name="catalog.leftnav" after="catalog.category" template="catalog/layer/view.phtml"/>
+                <block type="catalog/navigation" name="catalog.category" before="-" template="ajaxlayerednavigation/catalog/layer/view.phtml"/>
+                <block type="catalog/layer_view" name="catalog.leftnav" after="catalog.category" template="catalog/layer/view.phtml"/>                
                 <block type="filterproducts/bestsellers_home_list" name="bestseller" template="catalog/navigation/best_sellers.phtml"/>
                 <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
                     <block type="cms/block" name="cms_images_block">

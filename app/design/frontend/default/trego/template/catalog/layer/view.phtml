@@ -38,7 +38,21 @@ $layered_nav = Mage::getStoreConfig("trego_settings/category/layered_nav", $code
                     </div>
                     <div class="akordeon-item-body">
                         <div class="akordeon-item-content">                            
-                            <?php echo $_filter->getHtml() ?>
+                            <?php
+                                //echo $_filter->getHtml();
+                                $_info = $_filter->getAttributeModel();
+                                $_filter_is_active = false;
+                                if ($_info) {
+                                    $_id = $_info->getAttributeCode();
+                                } else {
+                                    $filter_name = $_filter->getItems();
+                                    if (isset($filter_name[0])) {
+                                        $_id = $filter_name[0]->getFilter()->getRequestVar();
+                                    }
+                                }
+                                $_filter_is_active = Mage::app()->getRequest()->getParam($_id) != "";
+                                echo $_filter->setFilterId($_id)->setFilterIsActive($_filter_is_active)->getHtml();
+                            ?>
                         </div>
                     </div>
                 </div>
