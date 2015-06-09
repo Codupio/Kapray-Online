@@ -135,8 +135,7 @@ function applyAjaxFilters() {
             _value = jQuery(this).data("attribute-value");
             _values.push(_value);
         });
-        _param_value = _values.join();
-        alert(_param_value);
+        _param_value = _values.join();        
         if (_param_value !== "") {
             _param = jQuery(this).data("attribute") + "=" + _param_value;
             _v.push(_param);
